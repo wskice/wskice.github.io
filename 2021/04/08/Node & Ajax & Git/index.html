@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Node &amp; Ajax &amp; git - Wskice</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="wskice的技术分享,Node &amp;amp; Ajax &amp;amp; gitNode.jsNode——基于Chrome V8引擎构建的后端
+Node支持ECMAScript 和 内置模块
+交互模式REPL(Read-Eval,"> 
+    <meta name="author" content="wskice"> 
+    <link rel="alternative" href="atom.xml" title="Wskice" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Node &amp; Ajax &amp; git - Wskice"/>
+    <meta name="twitter:description" content="wskice的技术分享,Node &amp;amp; Ajax &amp;amp; gitNode.jsNode——基于Chrome V8引擎构建的后端
+Node支持ECMAScript 和 内置模块
+交互模式REPL(Read-Eval,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Wskice"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Node &amp; Ajax &amp; git - Wskice"/>
+    <meta property="og:description" content="wskice的技术分享,Node &amp;amp; Ajax &amp;amp; gitNode.jsNode——基于Chrome V8引擎构建的后端
+Node支持ECMAScript 和 内置模块
+交互模式REPL(Read-Eval,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Wskice</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Node & Ajax & git</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Node & Ajax & git</h1>
+        <div class="stuff">
+            <span>四月 08, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Ajax/" rel="tag">Ajax</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/git/" rel="tag">git</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" rel="tag">学习资料</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="Node-amp-Ajax-amp-git"><a href="#Node-amp-Ajax-amp-git" class="headerlink" title="Node &amp; Ajax &amp; git"></a>Node &amp; Ajax &amp; git</h1><h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><p>Node——基于Chrome V8引擎构建的后端</p>
+<p>Node支持ECMAScript 和 内置模块</p>
+<h3 id="交互模式"><a href="#交互模式" class="headerlink" title="交互模式"></a>交互模式</h3><p>REPL(Read-Eval -Print-Loop)交互模式</p>
+<p>指的是在终端窗口中，执行简单的JavaScript代码</p>
+<ul>
+<li>在任意终端，直接入 node 命令并回车，即可进入node</li>
+<li>执行你的JS代码，按回车表示执行</li>
+<li>按两次“Ctrl+C”退出。</li>
+</ul>
+<h3 id="模块化概念"><a href="#模块化概念" class="headerlink" title="模块化概念"></a>模块化概念</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">把一个一个复杂的系统拆分成多个子系统，各个子系统之间互不影响，各自工作，各个子系统组合而成，形成完整的系统。</span><br><span class="line"></span><br><span class="line"><span class="title class_">NodeJS</span>实现了<span class="title class_">CommonJS</span>规范</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;&#125;;  <span class="comment">// 对外暴露数据</span></span><br><span class="line"><span class="number">2.</span><span class="built_in">require</span>(<span class="string">&#x27;文件&#x27;</span>)  <span class="comment">// 注意需要文件的路径</span></span><br></pre></td></tr></table></figure>
+
+<p>test.js文件内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span>(<span class="params">cs</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(cs)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 对外暴露</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">a</span>:a,</span><br><span class="line">  <span class="attr">fn</span>:fn</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Hello.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取模块</span></span><br><span class="line"><span class="keyword">var</span> &#123;a,fn&#125; = <span class="built_in">require</span>(<span class="string">&#x27;./test.js&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// 打印10</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fn</span>(<span class="number">222</span>)) <span class="comment">// 打印222</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="内置模块"><a href="#内置模块" class="headerlink" title="内置模块"></a>内置模块</h3><p>node自带的模块，可以直接接收使用，详细内容通过官网文档查询使用功能。</p>
+<p>通过 <strong>require</strong> 获取模块(js文件)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// require</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取路径中的文件后缀名</span></span><br><span class="line"><span class="keyword">let</span> zui = path.<span class="title function_">extname</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用http模块搭建服务器"><a href="#使用http模块搭建服务器" class="headerlink" title="使用http模块搭建服务器"></a>使用http模块搭建服务器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加载http模块</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.使用http模块创建web服务器</span></span><br><span class="line"><span class="keyword">let</span> server = http.<span class="title function_">createServer</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.监听请求request事件</span></span><br><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>,<span class="keyword">function</span>(<span class="params">req,res</span>)&#123; <span class="comment">// req请求信息，res相应信息</span></span><br><span class="line">  <span class="comment">// 设置相应头数据</span></span><br><span class="line">	res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>,<span class="string">&#x27;text/pain;charset=utf-8;&#x27;</span>)</span><br><span class="line">	<span class="comment">// 向客户端返回相应数据</span></span><br><span class="line">	res.<span class="title function_">end</span>(<span class="string">&#x27;传智专修学院欢迎您&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 监听端口号</span></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">5555</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;端口5555端口已启动成功&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>简写模式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加载http模块</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用http模块创建web服务器</span></span><br><span class="line"><span class="keyword">let</span> server = http.<span class="title function_">createServer</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="npm模块-第三方模块"><a href="#npm模块-第三方模块" class="headerlink" title="npm模块(第三方模块)"></a>npm模块(第三方模块)</h3><h4 id="第三方模块"><a href="#第三方模块" class="headerlink" title="第三方模块"></a>第三方模块</h4><ul>
+<li>第三方模块(其他人、组织、公司开发的模块)</li>
+<li>并将这些模块发布到npm网站上</li>
+<li>我们可以按照一些开源协议下载使用这些模块</li>
+<li>这些模块，不是自己创建的js文件（自定义模块）、不是Node内置模块，所以叫做第三方模块</li>
+</ul>
+<p>npm（node）</p>
+<p>如何引入第三方包：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// npm 初始化package.json</span></span><br><span class="line">npm init</span><br><span class="line"><span class="comment">// 一般设置一下名字版本说明就好了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// npm 安装第三方包(例：jquery)</span></span><br><span class="line">npm install jquery</span><br><span class="line">npm i 模块名</span><br><span class="line"></span><br><span class="line"><span class="comment">// npm 卸载 包</span></span><br><span class="line">npm uninstall 包名</span><br><span class="line">npm un 模块名</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Package-json"><a href="#Package-json" class="headerlink" title="Package.json"></a>Package.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dsad&quot;</span><span class="punctuation">,</span> <span class="comment">// 名字</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span> <span class="comment">// 版本</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;阿巴阿吧&quot;</span><span class="punctuation">,</span> <span class="comment">// 描述</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span> <span class="comment">// 使用包的js脚本文件</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="comment">// 依赖项(项目引入的包)</span></span><br><span class="line">    <span class="attr">&quot;jquery&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.6.0&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="npm安装包-命令"><a href="#npm安装包-命令" class="headerlink" title="npm安装包 命令"></a>npm安装包 命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>npm init</td>
+<td>初始化项目包管理(生成package.json文件)</td>
+</tr>
+<tr>
+<td>npm install [packname]</td>
+<td>安装第三方包，后面跟包名</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><h4 id="Ajax介绍"><a href="#Ajax介绍" class="headerlink" title="Ajax介绍"></a>Ajax介绍</h4><ul>
+<li>AJAX是 <strong>异步的JavaScript和XML</strong>（Asynchronous JavaScript And XML）。简单点说，<em>就是使用浏览器内置对象XMLHttpRequest 与服务器通信。</em></li>
+<li><strong>Ajax是一种技术，通过浏览器内置对象和服务器进行数据交互的技术。</strong></li>
+<li>它可以使用JSON，XML，HTML 和 text文本等格式发送和接收数据。</li>
+<li>AJAX最吸引人的就是它的“异步”特性，也就是说它可以在不重新刷新页面的情况下与服务器通信，交换数据，或更新页面。</li>
+<li>你可以使用AJAX最主要的两个特性做下列事：<ul>
+<li>在不重新加载页面的情况下发送请求给服务器。</li>
+<li>接受并使用从服务器发来的数据。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Ajax的运行原理"><a href="#Ajax的运行原理" class="headerlink" title="Ajax的运行原理"></a>Ajax的运行原理</h4><p>Ajax相当于浏览器发送请求与接收响应的代理人，以现实在不影响用户浏览页面的情况下，局部更新页面数据，从而提高用户体验。</p>
+<h5 id="开放人员不可控："><a href="#开放人员不可控：" class="headerlink" title="开放人员不可控："></a>开放人员不可控：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">          请求</span><br><span class="line">浏览器端 ————————&gt;  服务器端</span><br><span class="line">        &lt;————————  </span><br><span class="line">           相应</span><br></pre></td></tr></table></figure>
+
+<h5 id="开发人员可控："><a href="#开发人员可控：" class="headerlink" title="开发人员可控："></a>开发人员可控：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">          创建            请求</span><br><span class="line">浏览器端  ——————&gt;  <span class="title class_">Ajax</span>  ——————&gt;  服务器端</span><br><span class="line">        &lt;——————        &lt;——————  </span><br><span class="line">          相应            相应</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Ajax发送请求的实现步骤"><a href="#Ajax发送请求的实现步骤" class="headerlink" title="Ajax发送请求的实现步骤"></a>Ajax发送请求的实现步骤</h4><ol>
+<li><p>创建ajax对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取服务端给与客户端的相应数据</p>
+<p>onload 为 <strong>XHR2.0方法,代替onreadystatechange事件</strong></p>
+<p>responseText为XHR接收到的数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// XHR2.0方法</span></span><br><span class="line">xhr.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(xhr.<span class="property">responseText</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// XHR1.0方法</span></span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">// 获取请求响应的对象</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(xhr.<span class="property">reponseText</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>告诉Ajax请求地址以及请求方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;get&#x27;</span>,<span class="string">&#x27;http://www.example.com&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="title function_">send</span>()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取服务端给与客户端的相应数据</p>
+<p>onload 为 <strong>XHR2.0方法,代替onreadystatechange事件</strong></p>
+<p>responseText为XHR接收到的数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(xhr.<span class="property">responseText</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="jQuery里的get方法"><a href="#jQuery里的get方法" class="headerlink" title="jQuery里的get方法"></a>jQuery里的get方法</h3><p>前置：引入jQ</p>
+<p>$.get方法是jQ里封装好的Ajax方法，jQuery中$.get()函数的功能单一，专门用来发起get请求，从而将服务器上的资源请求到客户端来进行使用。</p>
+<p>$.get()函数的语法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">get</span>(url,[data],[success],[datatype])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">get</span>(<span class="string">&#x27;url地址&#x27;</span>,<span class="keyword">function</span>(<span class="params">data</span>)&#123; <span class="comment">// data为接收的数据</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>url</td>
+<td>是</td>
+<td>string</td>
+<td>请求的资源的地址，一般由后端同学提供</td>
+</tr>
+<tr>
+<td>data</td>
+<td>否</td>
+<td>任意</td>
+<td>请求参数，由后端同学设计</td>
+</tr>
+<tr>
+<td>succes</td>
+<td>是</td>
+<td>function</td>
+<td>请求成功出发的回调函数，函数的形参为响应结果</td>
+</tr>
+<tr>
+<td>dataType</td>
+<td>否</td>
+<td>string</td>
+<td>预期服务器响应数据的类型，一般不用设置</td>
+</tr>
+</tbody></table>
+<h3 id="jQuery中的ajax方法"><a href="#jQuery中的ajax方法" class="headerlink" title="jQuery中的ajax方法"></a>jQuery中的ajax方法</h3><p>$.ajax方法是jQ里封装好的Ajax方法，可以使用该方法发送get、post、head、put、delete……请求，和服务器进行数据传输。</p>
+<p>用法: (内置只有一个参数(对象Object))</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">  <span class="attr">type</span>:<span class="string">&quot;post&quot;</span>,  <span class="comment">//type属性填发送请求类型，不写默认是get</span></span><br><span class="line">  <span class="attr">url</span>:<span class="string">&quot;请求地址&quot;</span>, </span><br><span class="line">  <span class="attr">data</span>:&#123;属性:属性值&#125;,  <span class="comment">// data属性填 要发送的数据</span></span><br><span class="line">  <span class="comment">// success为请求完成时的回调函数，参数res为接收到的数据</span></span><br><span class="line">  <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">res</span>)&#123;  </span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// processData属性设置是否将发送的数据序列化(转字符串类型)</span></span><br><span class="line">  <span class="attr">processData</span>: <span class="literal">false</span>, </span><br><span class="line">  <span class="comment">// contentType属性设置请求头类型(也可手动设置)</span></span><br><span class="line">  <span class="comment">// true 为 application/x-www-form-urlencoded</span></span><br><span class="line">  <span class="comment">// false为 默认</span></span><br><span class="line">	<span class="attr">contentType</span>: <span class="literal">false</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>processData和contentType属性一般在post请求的时候使用。</p>
+<h3 id="Ajax-XHR"><a href="#Ajax-XHR" class="headerlink" title="Ajax XHR"></a>Ajax XHR</h3><p>Ajax xhr对象用于向服务端传送数据</p>
+<h4 id="XHR-创建对象"><a href="#XHR-创建对象" class="headerlink" title="XHR 创建对象"></a>XHR 创建对象</h4><p>创建XMLHttpRequest对象的语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br></pre></td></tr></table></figure>
+
+<h4 id="XHR请求"><a href="#XHR请求" class="headerlink" title="XHR请求"></a>XHR请求</h4><p>XMLHttpRequest对象用于和服务器交换数据。</p>
+<p>向服务器发送请求：</p>
+<p>将使用XMLHttpRequest对象的open()和send()方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建XMLHttpRequest对象</span></span><br><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>()</span><br><span class="line"><span class="comment">// 设置请求类型和请求地址(url)和 请求任务 异步还是同步执行</span></span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;get&#x27;</span>,<span class="string">&#x27;http://www.baidu.com&#x27;</span>,<span class="literal">true</span>)</span><br><span class="line"><span class="comment">// 设置监听onreadystatechange事件</span></span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">// 打印服务器响应的数据</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(xhr.<span class="property">responsetText</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将请求发送到服务器</span></span><br><span class="line">xhr.<span class="title function_">send</span>(string)</span><br></pre></td></tr></table></figure>
+
+<h4 id="XHR对象的readyState属性"><a href="#XHR对象的readyState属性" class="headerlink" title="XHR对象的readyState属性"></a>XHR对象的readyState属性</h4><ul>
+<li>Ajax从创建xhr对象开始，一直到完全接收服务器返回的结果为止；我们可以把整个请求响应过程划分为5个阶段，并且<strong>可以使用xhr.readyState 属性检测当前请求执行到了哪个阶段了</strong>。</li>
+<li>readyState属性为一个数字，不同的数字表示Ajax的不同状态。<ul>
+<li>（xhr.readyState &#x3D;&#x3D;&#x3D; 0），初始状态，表示xhr对象一定创建了</li>
+<li>（xhr.readyState &#x3D;&#x3D;&#x3D; 1），表示open一定调用了</li>
+<li>（xhr.readyState &#x3D;&#x3D;&#x3D; 2），表示send一定调用了，并且已经接收到相应头。</li>
+<li>（xhr.readyState &#x3D;&#x3D;&#x3D; 3），表示正在接受服务器返回的数据（可能已经接收完毕，也可能正在接收中，取决于数据量的大小）</li>
+<li>如果（xhr.readyState &#x3D;&#x3D;&#x3D; 4），表示Ajax请求～相应过程完成</li>
+</ul>
+</li>
+</ul>
+<h4 id="XHR对象的statue属性"><a href="#XHR对象的statue属性" class="headerlink" title="XHR对象的statue属性"></a>XHR对象的statue属性</h4><p>status属性表示http状态码，是一个数字，代码指示特定HTTP请求是否已成功完成。</p>
+<p>响应分为五类：</p>
+<ul>
+<li>信息响应(100-199)</li>
+<li>成功响应(200-299)</li>
+<li>重定向(300-399)</li>
+<li>客户端错误(400-499)</li>
+<li>服务器错误(500-599)</li>
+</ul>
+<p>常用状态码</p>
+<ul>
+<li>200  OK  -  请求成功</li>
+<li>400 Bad Request  -  语义有误，当前请求无法被服务器理解，或参数有误。</li>
+<li>401 Unauthorized  -  当前请求需要用户验证。</li>
+<li>404 Not Found  -  请求失败，请求所希望的到的资源未被在服务器上发现。</li>
+<li>500 Internal Server Error  - 服务器遇到了不知道如何处理的情况。</li>
+</ul>
+<p>使用status状态码，判断在请求发送中是否完成的状态，在将数据使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2.注册 xhr.onreadystatechange 事件，当Ajax请求完成后，会触发该事件。在该函数中，接收响应结果。</span></span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">// 当 xhr.readyState 变化到 4 的时候 （请求响应过程结束了）</span></span><br><span class="line">  <span class="comment">// 当 xhr.status === 200 的时候 （请求是成功的）</span></span><br><span class="line">  <span class="keyword">if</span>(xhr.<span class="property">readyState</span> === <span class="number">4</span> &amp;&amp; xhr.<span class="property">status</span> === <span class="number">200</span>)&#123;</span><br><span class="line">    <span class="comment">// 使用 xhr.responseText 接收响应结果</span></span><br><span class="line">    <span class="keyword">var</span> res = xhr.<span class="property">responseText</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Ajax中post和get请求的区别"><a href="#Ajax中post和get请求的区别" class="headerlink" title="Ajax中post和get请求的区别"></a>Ajax中post和get请求的区别</h3><ul>
+<li><p>post请求数据传输通过send方法传输，类型是字符串，属性值形式：’name&#x3D;张三’</p>
+</li>
+<li><p>post请求一般用于发送数据</p>
+</li>
+<li><p>post请求需要设置请求头</p>
+<p>根据post请求发送的数据要求来设置</p>
+<p><code>xhr.setRequestHeader(&#39;Content-Type&#39;,&#39;application/x-www-form-urlencoded&#39;)</code></p>
+</li>
+<li><p>get请求数据传输是将数据写在url地址后,以”?”后接”属性&#x3D;属性值”并用”&amp;”拼接的形式传送</p>
+</li>
+<li><p>get请求一般用于数据获取</p>
+</li>
+</ul>
+<p>post请求方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;POST&#x27;</span>,url地址)</span><br><span class="line">xhr.<span class="title function_">send</span>(传送的数据[string])</span><br></pre></td></tr></table></figure>
+
+<p>get请求方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>,<span class="string">`url地址?属性=属性值&amp;属性=属性值&amp;属性=属性值......`</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="XHR2新增事件和方法"><a href="#XHR2新增事件和方法" class="headerlink" title="XHR2新增事件和方法"></a>XHR2新增事件和方法</h4><h5 id="timeout属性-和-ontimeout事件"><a href="#timeout属性-和-ontimeout事件" class="headerlink" title="timeout属性 和 ontimeout事件"></a>timeout属性 和 ontimeout事件</h5><p>timeout属性可以设置xhr对象请求超时为多少（单位：毫秒）</p>
+<p>配合ontimeout事件可以设置请求超时时运行的代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置XHR对象请求时常为300毫秒是超时</span></span><br><span class="line">xhr.<span class="property">timeout</span> = <span class="number">300</span></span><br><span class="line"><span class="comment">// 设置XHR对象请求超时的时候触发的事件</span></span><br><span class="line">xhr.<span class="property">ontimeout</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;请求超时&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="onload事件"><a href="#onload事件" class="headerlink" title="onload事件"></a>onload事件</h5><p>onload事件，在请求成功完成时触发（即readyState为4时触发）</p>
+<p>可以用onload事件，代替之前的onreadystatechange事件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">// 成功响应后，获取相应结果。</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="variable language_">this</span>.<span class="property">responseText</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="onerror事件"><a href="#onerror事件" class="headerlink" title="onerror事件"></a>onerror事件</h5><p>请求失败时触发的事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="property">onerror</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">// 请求失败后触发</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;请求失败了&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;http://xxxxxxxxxx.com&#x27;</span>) <span class="comment">// 不存在的地址</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="onprogress事件"><a href="#onprogress事件" class="headerlink" title="onprogress事件"></a>onprogress事件</h5><p>onprogress事件，在请求完成之前周期性调用的函数。redyState为3时触发</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="property">onprogress</span> = <span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">loaded</span>) <span class="comment">// 已传输的数据量</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">total</span>) <span class="comment">// 总共的数据量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="event的两个属性"><a href="#event的两个属性" class="headerlink" title="event的两个属性"></a>event的两个属性</h5><p>event.loaded属性为已传输的数据量</p>
+<p>event.total属性为总共传输的数据量</p>
+<h5 id="onloadstart事件"><a href="#onloadstart事件" class="headerlink" title="onloadstart事件"></a>onloadstart事件</h5><p>开始传送数据时被调用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="property">onloadstart</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;即将开始下载数据&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="onloadend事件"><a href="#onloadend事件" class="headerlink" title="onloadend事件"></a>onloadend事件</h5><p>请求结束时被调用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="property">onloadend</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;请求已经结束&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="FormData表单数据对象"><a href="#FormData表单数据对象" class="headerlink" title="FormData表单数据对象"></a>FormData表单数据对象</h3><p>FormData()是一个构造函数，也是个对象，用于收集form表单的数据，配合ajax使用，向服务器提交数据。使用时，<strong>只能使用post请求</strong>，且使用formdata传数据不用设置请求头。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">  &lt;--&gt;账户名和密码&lt;/--&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;uname&quot;</span> <span class="attr">value</span>=<span class="string">&quot;小明&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upwd&quot;</span> <span class="attr">value</span>=<span class="string">&quot;xiaoming&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 先创建一个XML对象</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">let</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>()</span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">let</span> formdata = <span class="keyword">new</span> <span class="title class_">FormData</span>(form表单<span class="variable constant_">DOM</span>对象)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">xhr.<span class="title function_">open</span>(<span class="string">&#x27;post&#x27;</span>,<span class="string">&#x27;url地址&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 使用formdata传数据不用设置请求头</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 调用send方法时将formdata数据传入</span></span></span><br><span class="line"><span class="language-javascript">xhr.<span class="title function_">sned</span>(formdata)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="FormData实例对象的API方法："><a href="#FormData实例对象的API方法：" class="headerlink" title="FormData实例对象的API方法："></a>FormData实例对象的API方法：</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>append(‘key’,’value’)</td>
+<td>向对象中追加数据</td>
+</tr>
+<tr>
+<td>set(‘key’,value’)</td>
+<td>修改对象中的数据(也可添加)</td>
+</tr>
+<tr>
+<td>delete(‘key’)</td>
+<td>从对象中删除数据</td>
+</tr>
+<tr>
+<td>get(‘key’)</td>
+<td>获取指定key的一项数据</td>
+</tr>
+<tr>
+<td>getAll(‘key’)</td>
+<td>获取指定key的全部数据</td>
+</tr>
+<tr>
+<td>forEach()</td>
+<td>遍历对象中的数据</td>
+</tr>
+</tbody></table>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> formdata = <span class="keyword">new</span> <span class="title class_">FormData</span>(form)</span><br><span class="line">formdata.<span class="title function_">append</span>(<span class="string">&#x27;sex&#x27;</span>,<span class="string">&#x27;男&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="fetch的使用"><a href="#fetch的使用" class="headerlink" title="fetch的使用"></a>fetch的使用</h4><h4 id="Axios-js"><a href="#Axios-js" class="headerlink" title="Axios.js"></a>Axios.js</h4><p>Axios是一个机遇promise的HTTP库，可以用在浏览器和node.js中</p>
+<p>使用axios的前置: (引入axios.js文件)</p>
+<p><code>&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;</code></p>
+<h5 id="通过axios发送ajax请求"><a href="#通过axios发送ajax请求" class="headerlink" title="通过axios发送ajax请求"></a>通过axios发送ajax请求</h5><p>1.get请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数1为url地址,可直接在后面跟传送的数据,以?号开头&amp;拼接</span></span><br><span class="line">axios.<span class="title function_">get</span>(<span class="string">&#x27;http://www.baidu.com?q=CDN&#x27;</span>)</span><br><span class="line"><span class="comment">// .then方法将在请求结束后执行，函数里边的参数为接收到的数据</span></span><br><span class="line">  .<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(response);</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="comment">// .catch方法会在请求错误时执行,函数里边的参数为错误信息</span></span><br><span class="line">  .<span class="title function_">catch</span>(<span class="keyword">function</span> (<span class="params">error</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(error);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 另一种方式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数1为url地址,参数2为传送的数据</span></span><br><span class="line">axios.<span class="title function_">get</span>(<span class="string">&#x27;http://www.baidu.com&#x27;</span>,</span><br><span class="line">          &#123;<span class="attr">q</span>:<span class="string">&quot;CDN&quot;</span>&#125;)</span><br><span class="line"><span class="comment">// .then方法将在请求结束后执行，里边的response参数为接收到的数据</span></span><br><span class="line">  .<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(response);</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="comment">// .catch方法会在请求错误时执行,里边的error参数为错误信息</span></span><br><span class="line">  .<span class="title function_">catch</span>(<span class="keyword">function</span> (<span class="params">error</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(error);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2.post请求</p>
+<p>同上(.get换成.post即可)</p>
+<p>3.综合写法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// post请求</span></span><br><span class="line"><span class="title function_">axios</span>(&#123;</span><br><span class="line">  <span class="attr">method</span>:<span class="string">&#x27;post&#x27;</span>, <span class="comment">//method为发送请求的方式</span></span><br><span class="line">  <span class="attr">url</span>:<span class="string">&#x27;http://www.baidu.com&#x27;</span>,</span><br><span class="line">  <span class="attr">data</span>:&#123;   <span class="comment">// post请求将要传输到数据写在data里</span></span><br><span class="line">  <span class="attr">q</span>:<span class="string">&#x27;英雄联盟&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// .then方法将在请求结束后执行，里边的参数为接收到的数据</span></span><br><span class="line">.<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">res</span>)&#123; </span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// get请求</span></span><br><span class="line"><span class="title function_">axios</span>(&#123;</span><br><span class="line">  <span class="attr">method</span>:<span class="string">&#x27;get&#x27;</span>, <span class="comment">//method为发送请求的方式</span></span><br><span class="line">  <span class="attr">url</span>:<span class="string">&#x27;http://www.baidu.com&#x27;</span>,</span><br><span class="line">  <span class="attr">params</span>:&#123;   <span class="comment">// get请求将要传输到数据写在params里</span></span><br><span class="line">  <span class="attr">q</span>:<span class="string">&#x27;英雄联盟&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// .then方法将在请求结束后执行，里边的参数为接收到的数据</span></span><br><span class="line">.<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">res</span>)&#123; </span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="Art-template高性能JavaScript模版引擎"><a href="#Art-template高性能JavaScript模版引擎" class="headerlink" title="Art-template高性能JavaScript模版引擎"></a>Art-template高性能JavaScript模版引擎</h3><h4 id="art-template介绍"><a href="#art-template介绍" class="headerlink" title="art-template介绍"></a>art-template介绍</h4><p>art-template 是一个简约、超快的模板引擎。</p>
+<p>它采用作用域预声明的技术来优化模板渲染速度，从而获得接近 JavaScript 极限的运行性能，并且同时支持 NodeJS 和浏览器。</p>
+<h4 id="模版语法"><a href="#模版语法" class="headerlink" title="模版语法"></a>模版语法</h4><p>art-template 同时支持两种模板语法。标准语法可以让模板更容易读写；原始语法具有强大的逻辑处理能力。</p>
+<h5 id="标准语法"><a href="#标准语法" class="headerlink" title="标准语法"></a>标准语法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;<span class="keyword">if</span> user&#125;&#125;</span><br><span class="line">  &lt;h2&gt;&#123;&#123;user.<span class="property">name</span>&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&#123;&#123;/<span class="keyword">if</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="原始语法"><a href="#原始语法" class="headerlink" title="原始语法"></a>原始语法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (user) &#123; %&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&lt;%= user.name %&gt;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="模版语法-1"><a href="#模版语法-1" class="headerlink" title="模版语法"></a>模版语法</h5><p>html模版写在script标签里，type类型要设置成”text&#x2F;html”</p>
+<p>模版里的”each”是循环遍历(要使用双大括号括起来)</p>
+<p>模版里的”$value”是遍历数组里的每一项</p>
+<p>模版里的”$index”是数组每一项对应的下标</p>
+<p><em>相当于forEach</em></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/html&quot;</span> <span class="attr">id</span>=<span class="string">&#x27;tpl&#x27;</span>&gt;</span><span class="language-handlebars"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">			</span><span class="template-variable">&#123;&#123;<span class="name"><span class="built_in">each</span></span> list&#125;&#125;</span><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">			<span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">$value</span>&#125;&#125;</span><span class="language-xml"> </span><span class="template-variable">&#123;&#123;<span class="name">$index</span>&#125;&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">			</span><span class="template-tag">&#123;&#123;/<span class="name"><span class="built_in">each</span></span>&#125;&#125;</span><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="template-传入的第二个参数类型"><a href="#template-传入的第二个参数类型" class="headerlink" title="template()传入的第二个参数类型:"></a>template()传入的第二个参数类型:</h5><ol>
+<li><p>如果传入数据是数组，each后不写东西，直接可以遍历数组。</p>
+</li>
+<li><p>如果传入的是对象，each后不写东西，$value为对象里所有属性值，$index为对象里所有的属性名，属性和属性名一一对应。</p>
+</li>
+<li><p>如果传入的是”字符串”，那就厉害了，each后不写东西，$value是字符串每一个字符，$index是字符串每个字符的下标。</p>
+</li>
+</ol>
+<h5 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基于模版名渲染模版</span></span><br><span class="line"><span class="title function_">template</span>(<span class="string">&#x27;script模版id&#x27;</span>,data)</span><br><span class="line"><span class="comment">// template()</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 效果 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>0 - 小明<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>1 - 小红<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>2 - 小蓝<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>3 - 小绿<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 模版 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/html&quot;</span> <span class="attr">id</span>=<span class="string">&quot;con&quot;</span>&gt;</span><span class="language-handlebars"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">  <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">  </span><span class="template-variable">&#123;&#123;<span class="name"><span class="built_in">each</span></span>&#125;&#125;</span><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">   <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">$index</span>&#125;&#125;</span><span class="language-xml"> -- </span><span class="template-variable">&#123;&#123;<span class="name">$value</span>&#125;&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">  </span><span class="template-tag">&#123;&#123;/<span class="name"><span class="built_in">each</span></span>&#125;&#125;</span><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">  <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 代码 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 数据</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">let</span> arr = [<span class="string">&#x27;小明&#x27;</span>,<span class="string">&#x27;小红&#x27;</span>,<span class="string">&#x27;小蓝&#x27;</span>,<span class="string">&#x27;小绿&#x27;</span>]</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 存储art-template渲染的字符串</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">let</span> html = <span class="title function_">template</span>(<span class="string">&#x27;con&#x27;</span>,arr) <span class="comment">// 参数1为模版id,参数2为传入的数据</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 将art-template渲染的字符串放到要放的DOM元素里</span></span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>).<span class="property">innerHTML</span> = html</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+<h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h3 id="JSON的相关内容"><a href="#JSON的相关内容" class="headerlink" title="JSON的相关内容"></a>JSON的相关内容</h3><h4 id="JSON的介绍"><a href="#JSON的介绍" class="headerlink" title="JSON的介绍"></a>JSON的介绍</h4><p>JSON的本质是字符串，作为一种通用的格式，在传输数据时，当做数据的载体。</p>
+<p>JSON字符串中，允许出现的类型有：null，number，string，boolean，array，object。</p>
+<p><strong>注释、函数、undefined等其他所有类型都不能出现在JSON字符串中</strong></p>
+<p>所有字符串必须使用  <strong>“双引号”</strong>  括起来</p>
+<h4 id="JSON字符串和JS数据转换"><a href="#JSON字符串和JS数据转换" class="headerlink" title="JSON字符串和JS数据转换"></a>JSON字符串和JS数据转换</h4><ul>
+<li><p>JS  —-&gt;  JSON  (序列化)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> jsonStr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="variable constant_">JS</span>数据)</span><br><span class="line"><span class="comment">// JS数据一般为对象(Object)</span></span><br></pre></td></tr></table></figure>
+
+<p>这个过程称之为JS对象序列化</p>
+</li>
+<li><p>JSON  —-&gt;  JS对象  (反序列化)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> json = <span class="string">&quot;&#123;&quot;</span>uname<span class="string">&quot;:&quot;</span>小明<span class="string">&quot;,&quot;</span>age<span class="string">&quot;:&quot;</span><span class="number">21</span><span class="string">&quot;&#125;&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">pares</span>(json))</span><br><span class="line"><span class="comment">// 控制台打印 &#123;uname:&#x27;小明&#x27;,age:21&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个过程称之为  反序列化</p>
+</li>
+</ul>
+<hr>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>Git——分布式版本控制系统</p>
+<p>git是一个开源的分布式版本控制系统，可以有效、高速地处理很小到非常大的项目版本管理</p>
+<p><strong>有三个区域：1.工作区，2.暂存区，3.仓库。</strong></p>
+<h3 id="Git的安装配置"><a href="#Git的安装配置" class="headerlink" title="Git的安装配置"></a>Git的安装配置</h3><p>使用git必要的操作</p>
+<ol>
+<li><p>从网上下载安装git</p>
+</li>
+<li><p>打开终端，在终端中输入 <code>git config --global user.name &quot;用户名&quot;</code> 回车执行，用户名需要在github或gitee等版本分布系统网站注册获得。</p>
+</li>
+<li><p>完成第二步，接着在终端输入 <code>git config --global user.email &quot;邮箱&quot;</code> 回车执行。</p>
+</li>
+</ol>
+<p>完成这三步就基本配置好了git</p>
+<h3 id="版本管理系统"><a href="#版本管理系统" class="headerlink" title="版本管理系统"></a>版本管理系统</h3><p>大白话：可以管理项目版本的一个系统，可以给项目每个版本阶段存档</p>
+<h4 id="集中式版本管理"><a href="#集中式版本管理" class="headerlink" title="集中式版本管理"></a>集中式版本管理</h4><p>集中式版本管理软件的特点是，代码的版本集中到一个服务器上。问题是，如果没有网络或者服务器崩溃，将无法进行版本管理。</p>
+<h4 id="分布式版本管理"><a href="#分布式版本管理" class="headerlink" title="分布式版本管理"></a>分布式版本管理</h4><p>本地计算机可以当项目版本库用</p>
+<p>分布式版本管理软件的特点是，代码的版本分布到每个计算机上。99%的操作都是在自己的计算机上完成。</p>
+<h4 id="git的使用"><a href="#git的使用" class="headerlink" title="git的使用"></a>git的使用</h4><h5 id="首先需要初始化一个本地仓库"><a href="#首先需要初始化一个本地仓库" class="headerlink" title="首先需要初始化一个本地仓库"></a>首先需要初始化一个本地仓库</h5><ol>
+<li><p>打开终端，利用cd命令进入到项目文件夹。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> (项目所在目录)  // Enter(回车)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入命令 <code>git init</code> 执行，完成仓库的初始化。</p>
+</li>
+</ol>
+<h4 id="GIt终端命令表"><a href="#GIt终端命令表" class="headerlink" title="GIt终端命令表"></a>GIt终端命令表</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git init</td>
+<td>git仓库初始化</td>
+</tr>
+<tr>
+<td>git add .&#x2F;</td>
+<td>提交本次项目至暂存区</td>
+</tr>
+<tr>
+<td>git commit -m “本次版本更新的说明”</td>
+<td>将暂存区添加的项目提交至仓库</td>
+</tr>
+<tr>
+<td>git commit <file> -m “提交日志”</td>
+<td>提交指定文件到仓库，形成一个新版本</td>
+</tr>
+<tr>
+<td>git log</td>
+<td>查看git记录了几次</td>
+</tr>
+<tr>
+<td>git reset –hard 版本号</td>
+<td>回滚&#x2F;更新至对应版本号的项目</td>
+</tr>
+<tr>
+<td>git log –oneline</td>
+<td>单行查看简略版日志</td>
+</tr>
+<tr>
+<td>git log -n</td>
+<td>查看最近n次提交</td>
+</tr>
+<tr>
+<td>git log –reflog</td>
+<td>查看所有版本的日志</td>
+</tr>
+<tr>
+<td>git log –reflog –oneline</td>
+<td>配合使用</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看工作区文件更改</td>
+</tr>
+<tr>
+<td>git checkout <file></td>
+<td>撤销指定的文件修改(工作区内)</td>
+</tr>
+<tr>
+<td>git checkout .&#x2F;</td>
+<td>撤销所有文件的修改(工作区内)</td>
+</tr>
+<tr>
+<td>git reset <flie></td>
+<td>撤销指定的文件</td>
+</tr>
+<tr>
+<td>git reset .&#x2F;</td>
+<td>撤销全部文件</td>
+</tr>
+<tr>
+<td>git commit -a -m “提交日志”</td>
+<td>直接将工作区改动提交至仓库</td>
+</tr>
+<tr>
+<td>git reflog</td>
+<td>查看所有提交&#x2F;回滚日志及版本</td>
+</tr>
+</tbody></table>
+<h5 id="git提交本地项目版本至远程仓库命令"><a href="#git提交本地项目版本至远程仓库命令" class="headerlink" title="git提交本地项目版本至远程仓库命令"></a>git提交本地项目版本至远程仓库命令</h5><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git remote -v</td>
+<td>查看推送地址别名</td>
+</tr>
+<tr>
+<td>git remote add 地址别名 http&#x2F;ssh地址</td>
+<td>添加提交地址，及地址别名</td>
+</tr>
+<tr>
+<td>git remote remove 地址别名 http&#x2F;shh地址</td>
+<td>删除提交地址，及地址别名</td>
+</tr>
+<tr>
+<td>git push -u 地址别名</td>
+<td>提交最新版本代码至远程仓库(第一次需要-u 地址别名)</td>
+</tr>
+<tr>
+<td>git push 地址别名(选填,一般不填)</td>
+<td>提交最新版本代码至远程仓库</td>
+</tr>
+<tr>
+<td>git pull 地址别名(选填,一般不填)</td>
+<td>从远程服务器拉取代码</td>
+</tr>
+<tr>
+<td>git clone 地址</td>
+<td>从远端服务器克隆项目至本地</td>
+</tr>
+</tbody></table>
+<h4 id="git项目分支"><a href="#git项目分支" class="headerlink" title="git项目分支"></a>git项目分支</h4><p>git项目分支可以将项目代码克隆一份出来进行开发，主支路和分路互不影响，可同时开发，主分支一般用于稳定版本的发布和推送，分支版本一般用于开发新功能和测试使用，分支项目测试完成，确定没有问题的时候才会合并起来到主分支，分支项目可以进行删除修改合并，主分支不可删除。</p>
+<h5 id="git本地分支管理命令"><a href="#git本地分支管理命令" class="headerlink" title="git本地分支管理命令"></a>git本地分支管理命令</h5><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git checkout 分支名称</td>
+<td>进入分支</td>
+</tr>
+<tr>
+<td>git branch</td>
+<td>查看本地项目分支</td>
+</tr>
+<tr>
+<td>git branch 分支名称</td>
+<td>创建分支</td>
+</tr>
+<tr>
+<td>git merge 分支名称</td>
+<td>合并分支到master分支</td>
+</tr>
+<tr>
+<td>git branch -av</td>
+<td>查看本地和远程所有分支</td>
+</tr>
+<tr>
+<td>git branch -d 分支名称</td>
+<td>删除已合并的分支</td>
+</tr>
+<tr>
+<td>git branch -D 分支名称</td>
+<td>强制删除分支</td>
+</tr>
+<tr>
+<td>git checkout -b “分支名称”</td>
+<td>创建并进入分支</td>
+</tr>
+</tbody></table>
+<h4 id="git三方合并"><a href="#git三方合并" class="headerlink" title="git三方合并"></a>git三方合并</h4><p>有两个分支，一个主分支A，另一个分支B，在A分支里修改同一个文件(index.txt)，在B分支也修改同一个文件(index.txt)，A、B分支都提交(commit)，产生一个新版本，接着B分支开发的功能要合并到主分支A上，这个情况就叫三方合并，且很容易产生 **冲突(CONFLICT)**，此时需要双方分支开发者协商修改好文件后，在继续向后提交(commit)新版本，就可以解决冲突了。</p>
+<h5 id="git远程分支管理命令"><a href="#git远程分支管理命令" class="headerlink" title="git远程分支管理命令"></a>git远程分支管理命令</h5><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git push 地址别名 –delete 分支名</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="git命令配置"><a href="#git命令配置" class="headerlink" title="git命令配置"></a>git命令配置</h5><p>项目文件夹里的.git目录下的.gitconfig文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在[alias]列表下添加</span><br><span class="line">例：</span><br><span class="line"></span><br><span class="line">[alias]</span><br><span class="line">  cm = commit</span><br></pre></td></tr></table></figure>
+
+<p>之后就可以  git cm - m  “提交代码啦”</p>
+<h5 id="git上传忽略文件操作"><a href="#git上传忽略文件操作" class="headerlink" title="git上传忽略文件操作"></a>git上传忽略文件操作</h5><p>需要在项目文件夹新建一个.gitignore文件，里边写上不上传的文件名，多文件，以回车分开，即可忽略上传某文件。</p>
+<h3 id="——学习委员的笔记"><a href="#——学习委员的笔记" class="headerlink" title="——学习委员的笔记"></a>——学习委员的笔记</h3>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-amp-Ajax-amp-git"><span class="toc-number">1.</span> <span class="toc-text">Node &amp; Ajax &amp; git</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js"><span class="toc-number">2.</span> <span class="toc-text">Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.0.1.</span> <span class="toc-text">交互模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E6%A6%82%E5%BF%B5"><span class="toc-number">2.0.2.</span> <span class="toc-text">模块化概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97"><span class="toc-number">2.0.3.</span> <span class="toc-text">内置模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8http%E6%A8%A1%E5%9D%97%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.0.4.</span> <span class="toc-text">使用http模块搭建服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#npm%E6%A8%A1%E5%9D%97-%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97"><span class="toc-number">2.0.5.</span> <span class="toc-text">npm模块(第三方模块)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97"><span class="toc-number">2.0.5.1.</span> <span class="toc-text">第三方模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Package-json"><span class="toc-number">2.0.6.</span> <span class="toc-text">Package.json</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#npm%E5%AE%89%E8%A3%85%E5%8C%85-%E5%91%BD%E4%BB%A4"><span class="toc-number">2.0.7.</span> <span class="toc-text">npm安装包 命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ajax"><span class="toc-number">3.</span> <span class="toc-text">Ajax</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Ajax%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">Ajax介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ajax%E7%9A%84%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">Ajax的运行原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E4%BA%BA%E5%91%98%E4%B8%8D%E5%8F%AF%E6%8E%A7%EF%BC%9A"><span class="toc-number">3.0.0.2.1.</span> <span class="toc-text">开放人员不可控：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E5%8F%AF%E6%8E%A7%EF%BC%9A"><span class="toc-number">3.0.0.2.2.</span> <span class="toc-text">开发人员可控：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ajax%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.0.0.3.</span> <span class="toc-text">Ajax发送请求的实现步骤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery%E9%87%8C%E7%9A%84get%E6%96%B9%E6%B3%95"><span class="toc-number">3.0.1.</span> <span class="toc-text">jQuery里的get方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery%E4%B8%AD%E7%9A%84ajax%E6%96%B9%E6%B3%95"><span class="toc-number">3.0.2.</span> <span class="toc-text">jQuery中的ajax方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax-XHR"><span class="toc-number">3.0.3.</span> <span class="toc-text">Ajax XHR</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#XHR-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.0.3.1.</span> <span class="toc-text">XHR 创建对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XHR%E8%AF%B7%E6%B1%82"><span class="toc-number">3.0.3.2.</span> <span class="toc-text">XHR请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XHR%E5%AF%B9%E8%B1%A1%E7%9A%84readyState%E5%B1%9E%E6%80%A7"><span class="toc-number">3.0.3.3.</span> <span class="toc-text">XHR对象的readyState属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XHR%E5%AF%B9%E8%B1%A1%E7%9A%84statue%E5%B1%9E%E6%80%A7"><span class="toc-number">3.0.3.4.</span> <span class="toc-text">XHR对象的statue属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax%E4%B8%ADpost%E5%92%8Cget%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">3.0.4.</span> <span class="toc-text">Ajax中post和get请求的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#XHR2%E6%96%B0%E5%A2%9E%E4%BA%8B%E4%BB%B6%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-number">3.0.4.1.</span> <span class="toc-text">XHR2新增事件和方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#timeout%E5%B1%9E%E6%80%A7-%E5%92%8C-ontimeout%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.0.4.1.1.</span> <span class="toc-text">timeout属性 和 ontimeout事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#onload%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.0.4.1.2.</span> <span class="toc-text">onload事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#onerror%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.0.4.1.3.</span> <span class="toc-text">onerror事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#onprogress%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.0.4.1.4.</span> <span class="toc-text">onprogress事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#event%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%B1%9E%E6%80%A7"><span class="toc-number">3.0.4.1.5.</span> <span class="toc-text">event的两个属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#onloadstart%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.0.4.1.6.</span> <span class="toc-text">onloadstart事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#onloadend%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.0.4.1.7.</span> <span class="toc-text">onloadend事件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FormData%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.0.5.</span> <span class="toc-text">FormData表单数据对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#FormData%E5%AE%9E%E4%BE%8B%E5%AF%B9%E8%B1%A1%E7%9A%84API%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">3.0.5.0.1.</span> <span class="toc-text">FormData实例对象的API方法：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fetch%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.0.5.1.</span> <span class="toc-text">fetch的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Axios-js"><span class="toc-number">3.0.5.2.</span> <span class="toc-text">Axios.js</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%9A%E8%BF%87axios%E5%8F%91%E9%80%81ajax%E8%AF%B7%E6%B1%82"><span class="toc-number">3.0.5.2.1.</span> <span class="toc-text">通过axios发送ajax请求</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Art-template%E9%AB%98%E6%80%A7%E8%83%BDJavaScript%E6%A8%A1%E7%89%88%E5%BC%95%E6%93%8E"><span class="toc-number">3.0.6.</span> <span class="toc-text">Art-template高性能JavaScript模版引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#art-template%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.0.6.1.</span> <span class="toc-text">art-template介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E7%89%88%E8%AF%AD%E6%B3%95"><span class="toc-number">3.0.6.2.</span> <span class="toc-text">模版语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E8%AF%AD%E6%B3%95"><span class="toc-number">3.0.6.2.1.</span> <span class="toc-text">标准语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E8%AF%AD%E6%B3%95"><span class="toc-number">3.0.6.2.2.</span> <span class="toc-text">原始语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E7%89%88%E8%AF%AD%E6%B3%95-1"><span class="toc-number">3.0.6.2.3.</span> <span class="toc-text">模版语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#template-%E4%BC%A0%E5%85%A5%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.0.6.2.4.</span> <span class="toc-text">template()传入的第二个参数类型:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95"><span class="toc-number">3.0.6.2.5.</span> <span class="toc-text">核心方法</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON"><span class="toc-number">4.</span> <span class="toc-text">JSON</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON%E7%9A%84%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="toc-number">4.0.1.</span> <span class="toc-text">JSON的相关内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JSON%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">4.0.1.1.</span> <span class="toc-text">JSON的介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSON%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8CJS%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.0.1.2.</span> <span class="toc-text">JSON字符串和JS数据转换</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git"><span class="toc-number">5.</span> <span class="toc-text">Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">5.0.1.</span> <span class="toc-text">Git的安装配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.0.2.</span> <span class="toc-text">版本管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-number">5.0.2.1.</span> <span class="toc-text">集中式版本管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-number">5.0.2.2.</span> <span class="toc-text">分布式版本管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">5.0.2.3.</span> <span class="toc-text">git的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A6%96%E5%85%88%E9%9C%80%E8%A6%81%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">5.0.2.3.1.</span> <span class="toc-text">首先需要初始化一个本地仓库</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GIt%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%A8"><span class="toc-number">5.0.2.4.</span> <span class="toc-text">GIt终端命令表</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#git%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E7%89%88%E6%9C%AC%E8%87%B3%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%91%BD%E4%BB%A4"><span class="toc-number">5.0.2.4.1.</span> <span class="toc-text">git提交本地项目版本至远程仓库命令</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git%E9%A1%B9%E7%9B%AE%E5%88%86%E6%94%AF"><span class="toc-number">5.0.2.5.</span> <span class="toc-text">git项目分支</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#git%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="toc-number">5.0.2.5.1.</span> <span class="toc-text">git本地分支管理命令</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git%E4%B8%89%E6%96%B9%E5%90%88%E5%B9%B6"><span class="toc-number">5.0.2.6.</span> <span class="toc-text">git三方合并</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#git%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="toc-number">5.0.2.6.1.</span> <span class="toc-text">git远程分支管理命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#git%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE"><span class="toc-number">5.0.2.6.2.</span> <span class="toc-text">git命令配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#git%E4%B8%8A%E4%BC%A0%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">5.0.2.6.3.</span> <span class="toc-text">git上传忽略文件操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%94%E2%80%94%E5%AD%A6%E4%B9%A0%E5%A7%94%E5%91%98%E7%9A%84%E7%AC%94%E8%AE%B0"><span class="toc-number">5.0.3.</span> <span class="toc-text">——学习委员的笔记</span></a></li></ol></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

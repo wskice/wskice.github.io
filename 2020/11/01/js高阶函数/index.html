@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Js高阶函数 - Wskice</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="wskice的技术分享,12.13拔高培训1高阶函数介绍:
+forEach  ——  遍历数组(无返回值)
+find  ——  查找器,查找符合条件的数据(只找第一个,找到就返回,停止查找)
+filter  ——  过滤器,"> 
+    <meta name="author" content="wskice"> 
+    <link rel="alternative" href="atom.xml" title="Wskice" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Js高阶函数 - Wskice"/>
+    <meta name="twitter:description" content="wskice的技术分享,12.13拔高培训1高阶函数介绍:
+forEach  ——  遍历数组(无返回值)
+find  ——  查找器,查找符合条件的数据(只找第一个,找到就返回,停止查找)
+filter  ——  过滤器,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Wskice"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Js高阶函数 - Wskice"/>
+    <meta property="og:description" content="wskice的技术分享,12.13拔高培训1高阶函数介绍:
+forEach  ——  遍历数组(无返回值)
+find  ——  查找器,查找符合条件的数据(只找第一个,找到就返回,停止查找)
+filter  ——  过滤器,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Wskice</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Js高阶函数</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Js高阶函数</h1>
+        <div class="stuff">
+            <span>十一月 01, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/js/" rel="tag">js</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" rel="tag">学习资料</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="12-13"><a href="#12-13" class="headerlink" title="12.13"></a>12.13</h1><h2 id="拔高培训1"><a href="#拔高培训1" class="headerlink" title="拔高培训1"></a>拔高培训1</h2><h4 id="高阶函数介绍"><a href="#高阶函数介绍" class="headerlink" title="高阶函数介绍:"></a>高阶函数介绍:</h4><ol>
+<li>forEach  ——  遍历数组(无返回值)</li>
+<li>find  ——  查找器,查找符合条件的数据(只找第一个,找到就返回,停止查找)</li>
+<li>filter  ——  过滤器,筛选数组中符合条件的数据,并以 数组 的方式返回</li>
+<li>sort  ——  排序器,代替冒泡排序(返回值为排好的 新数组)</li>
+<li>map  ——  高级遍历(修改数据、提取数据、返回值为修改后的 新数组)</li>
+<li>some  ——  或判断器(遍历数组,有一条为true,返回值为true,反之则以)</li>
+<li>every  ——  与判断器(遍历数组,有一条为false,返回值为false,反之则以)</li>
+<li>reduce  ——  累(加减乘除)器(返回值为累加减乘除后的数)</li>
+</ol>
+<p><strong>以上高阶函数都用到循环,参数里边的函数体皆为循环体,所有形参里的函数形参都可以自定义,但推荐使用语义化单词</strong></p>
+<p><em>注意:以下的item,index,arr可选填(不用时可不填)</em></p>
+<h3 id="生单词表"><a href="#生单词表" class="headerlink" title="生单词表:"></a>生单词表:</h3><table>
+<thead>
+<tr>
+<th align="left">生词</th>
+<th align="left">翻译</th>
+<th align="left">生词</th>
+<th align="left">翻译</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Each</td>
+<td align="left">每个、各自</td>
+<td align="left">map</td>
+<td align="left">n.地图(提供信息)</td>
+</tr>
+<tr>
+<td align="left">every</td>
+<td align="left">每一个</td>
+<td align="left">find</td>
+<td align="left">找到、找出</td>
+</tr>
+<tr>
+<td align="left">filter</td>
+<td align="left">过滤器</td>
+<td align="left">reduce</td>
+<td align="left">减少(累(+-*&#x2F;%)器)</td>
+</tr>
+<tr>
+<td align="left">next</td>
+<td align="left">下一个</td>
+<td align="left">prev</td>
+<td align="left">前一个</td>
+</tr>
+<tr>
+<td align="left">item</td>
+<td align="left">项</td>
+<td align="left">index</td>
+<td align="left">索引、下标</td>
+</tr>
+<tr>
+<td align="left">Sort</td>
+<td align="left">分类、排序</td>
+<td align="left">total</td>
+<td align="left">全部的、总计</td>
+</tr>
+</tbody></table>
+<h4 id="高阶函数-只要满足其一就为高级函数"><a href="#高阶函数-只要满足其一就为高级函数" class="headerlink" title="高阶函数:(只要满足其一就为高级函数)"></a>高阶函数:(只要满足其一就为高级函数)</h4><ol>
+<li>函数的参数是函数</li>
+<li>函数返回值是函数</li>
+</ol>
+<h4 id="1-forEach数组遍历-for循环简版"><a href="#1-forEach数组遍历-for循环简版" class="headerlink" title="1.forEach数组遍历(for循环简版)"></a>1.forEach数组遍历(for循环简版)</h4><p>作用:for循环简版</p>
+<p>语法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">item,index</span>)&#123; </span><br><span class="line">     <span class="comment">//item为每一项,index为下标(前面为变动数据)</span></span><br><span class="line">     item = <span class="string">&#x27;大意了&#x27;</span> <span class="comment">//更改每一项的值</span></span><br><span class="line">     &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意:无返回值</p>
+<h4 id="2-find查找器"><a href="#2-find查找器" class="headerlink" title="2.find查找器"></a>2.find查找器</h4><p>作用:查找符合条件的数据(找到第一个就停止查找),返回值为查找到的数据</p>
+<p>语法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="keyword">var</span> a = arr.<span class="title function_">find</span>(<span class="keyword">function</span> (<span class="params">item,index,arr</span>)&#123;</span><br><span class="line">    <span class="comment">// item为每一项,index为下标(前面为变动数据);arr为原数组</span></span><br><span class="line">    <span class="keyword">return</span> item &gt; <span class="number">3</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">//输出为5</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-fileter过滤器"><a href="#3-fileter过滤器" class="headerlink" title="3.fileter过滤器"></a>3.fileter过滤器</h4><p>作用:筛选数组中符合条件的数据,并以 数组 的方式返回</p>
+<p>语法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> a = arr.<span class="title function_">fileter</span>(<span class="keyword">function</span> (<span class="params">item,index,arr</span>)&#123; </span><br><span class="line">    <span class="comment">// item为每一项,index为下标(前面为变动数据);arr为原数组</span></span><br><span class="line">     <span class="keyword">return</span> item &gt; <span class="number">2</span>  <span class="comment">//筛选条件</span></span><br><span class="line">     &#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)  <span class="comment">//输出为[3,4,5]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-sort排序器"><a href="#4-sort排序器" class="headerlink" title="4.sort排序器"></a>4.sort排序器</h4><p>作用:可根据条件进行排序(类似冒泡排序,代替冒泡排序)</p>
+<p>语法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line"><span class="keyword">var</span> a = arr.<span class="title function_">sort</span>(<span class="keyword">function</span> (<span class="params">next,prev</span>)&#123;</span><br><span class="line">        <span class="comment">//next后一个,prev前一个</span></span><br><span class="line">        <span class="keyword">return</span> next - prev <span class="comment">//后一个减前一个 从小到大排</span></span><br><span class="line">   <span class="comment">//prev - next 前一个减后一个  从大到小排</span></span><br><span class="line">        &#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">//输出 [5,4,3,2,1]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-map高级遍历"><a href="#5-map高级遍历" class="headerlink" title="5.map高级遍历"></a>5.map高级遍历</h4><p>作用:便利数组,可在循环体中修改提取数据,返回值为修改后的 新数组</p>
+<p>语法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">12</span>,<span class="number">24</span>,<span class="number">8</span>,<span class="number">67</span>,<span class="number">51</span>,<span class="number">9</span>,<span class="number">42</span>,<span class="number">7</span>]</span><br><span class="line"><span class="keyword">var</span> a = arr.<span class="title function_">map</span>(<span class="keyword">function</span> (<span class="params">item,index,arr</span>)&#123;</span><br><span class="line">    <span class="comment">// item为每一项,index为下标(前面为变动数据);arr为原数组</span></span><br><span class="line">  <span class="keyword">if</span>(item &lt; <span class="number">10</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> item <span class="comment">//返回每一项,让map拼接成新数组</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">//输出[1,2,null,null,8,null,null,9,null,7]</span></span><br></pre></td></tr></table></figure>
+
+<p>注意:和forEach的区别是map会返回修改后的新数组,forEach不会</p>
+<h4 id="6-some或判断器"><a href="#6-some或判断器" class="headerlink" title="6.some或判断器"></a>6.some或判断器</h4><p>作用:判断数组里是否有符合条件的数据,有则返回true</p>
+<p>语法: (<strong>只要有一个符合条件,整体为true,反之则以</strong>)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [&#123;<span class="attr">s</span>:<span class="literal">false</span>&#125;,&#123;<span class="attr">s</span>:<span class="literal">false</span>&#125;,&#123;<span class="attr">s</span>:<span class="literal">true</span>&#125;,&#123;<span class="attr">s</span>:<span class="literal">false</span>&#125;]</span><br><span class="line"><span class="keyword">var</span> a = arr.<span class="title function_">some</span>(<span class="keyword">function</span>(<span class="params">item,index,arr</span>)&#123;</span><br><span class="line">    <span class="comment">// item为每一项,index为下标(前面为变动数据);arr为原数组</span></span><br><span class="line">  <span class="keyword">return</span> item.<span class="property">s</span> = <span class="literal">true</span> <span class="comment">//判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">//输出true</span></span><br></pre></td></tr></table></figure>
+
+<p>相当于||(或)</p>
+<h4 id="7-every与判断器"><a href="#7-every与判断器" class="headerlink" title="7.every与判断器"></a>7.every与判断器</h4><p>作用:判断数组里的所有数据是否符合条件,全部符合则为true,反正则为false</p>
+<p>语法:  (<strong>判断条件全为true的情况下整体返回 true</strong>)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>]</span><br><span class="line"><span class="keyword">var</span> a = arr.<span class="title function_">every</span>(<span class="keyword">function</span>(<span class="params">item,index,arr</span>)&#123;</span><br><span class="line">    <span class="comment">// item为每一项,index为下标(前面为变动数据);arr为原数组</span></span><br><span class="line">  <span class="keyword">return</span> item % <span class="number">10</span> == <span class="number">0</span> <span class="comment">//判断条件</span></span><br><span class="line">  <span class="comment">// 条件不满足后面项不遍历</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">//输出true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>相当于&amp;&amp;(与)</strong></p>
+<h4 id="8-reduce累-加减乘除、取余-器"><a href="#8-reduce累-加减乘除、取余-器" class="headerlink" title="8.reduce累(加减乘除、取余)器"></a>8.reduce累(加减乘除、取余)器</h4><p>作用:累加、累减、累乘、累除、累取余,灵活应用可用于进制转换</p>
+<p>语法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="keyword">var</span> a = arr.<span class="title function_">reduce</span>(<span class="keyword">function</span>(<span class="params">total,item,index,arr</span>)&#123;</span><br><span class="line">    <span class="comment">// total为初始值,用于累加计算结果的返回值(随着循环累计)</span></span><br><span class="line">    <span class="comment">// item为每一项,index为下标(前面为变动数据);arr为原数组</span></span><br><span class="line">    <span class="comment">// index和arr可选填(用不到时可不填)</span></span><br><span class="line">  <span class="keyword">return</span> total + item <span class="comment">//累加(可自由组计算公式)</span></span><br><span class="line">&#125;,<span class="number">1</span>) <span class="comment">//reduce第二个形参为初始数(第一个数),从1开始累加</span></span><br><span class="line"><span class="comment">//reduce第二个形参不写默认为0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">//输出21 (运算后的值)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><u>⚠️提示 : 并不仅用于累加累减累成累除项与项之间的计算公式可自定</u></strong></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#12-13"><span class="toc-number">1.</span> <span class="toc-text">12.13</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%94%E9%AB%98%E5%9F%B9%E8%AE%AD1"><span class="toc-number">1.1.</span> <span class="toc-text">拔高培训1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">高阶函数介绍:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%8D%95%E8%AF%8D%E8%A1%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">生单词表:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0-%E5%8F%AA%E8%A6%81%E6%BB%A1%E8%B6%B3%E5%85%B6%E4%B8%80%E5%B0%B1%E4%B8%BA%E9%AB%98%E7%BA%A7%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">高阶函数:(只要满足其一就为高级函数)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-forEach%E6%95%B0%E7%BB%84%E9%81%8D%E5%8E%86-for%E5%BE%AA%E7%8E%AF%E7%AE%80%E7%89%88"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">1.forEach数组遍历(for循环简版)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-find%E6%9F%A5%E6%89%BE%E5%99%A8"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">2.find查找器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-fileter%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">3.fileter过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-sort%E6%8E%92%E5%BA%8F%E5%99%A8"><span class="toc-number">1.1.1.5.</span> <span class="toc-text">4.sort排序器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-map%E9%AB%98%E7%BA%A7%E9%81%8D%E5%8E%86"><span class="toc-number">1.1.1.6.</span> <span class="toc-text">5.map高级遍历</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-some%E6%88%96%E5%88%A4%E6%96%AD%E5%99%A8"><span class="toc-number">1.1.1.7.</span> <span class="toc-text">6.some或判断器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-every%E4%B8%8E%E5%88%A4%E6%96%AD%E5%99%A8"><span class="toc-number">1.1.1.8.</span> <span class="toc-text">7.every与判断器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-reduce%E7%B4%AF-%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E3%80%81%E5%8F%96%E4%BD%99-%E5%99%A8"><span class="toc-number">1.1.1.9.</span> <span class="toc-text">8.reduce累(加减乘除、取余)器</span></a></li></ol></li></ol></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

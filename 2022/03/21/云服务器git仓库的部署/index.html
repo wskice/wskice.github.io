@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>使用云服务器当git仓库并与本地文件进行同步 - Wskice</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="wskice的技术分享,使用云服务器当git仓库并与本地文件进行同步本教程用于实现:通过git将自己的项目部署到自己的云服务器上,让每一步git提交都可以实现文件的更新可用于博客部署，服务器部署，前端页面部署等。。。。
+前,"> 
+    <meta name="author" content="wskice"> 
+    <link rel="alternative" href="atom.xml" title="Wskice" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="使用云服务器当git仓库并与本地文件进行同步 - Wskice"/>
+    <meta name="twitter:description" content="wskice的技术分享,使用云服务器当git仓库并与本地文件进行同步本教程用于实现:通过git将自己的项目部署到自己的云服务器上,让每一步git提交都可以实现文件的更新可用于博客部署，服务器部署，前端页面部署等。。。。
+前,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Wskice"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="使用云服务器当git仓库并与本地文件进行同步 - Wskice"/>
+    <meta property="og:description" content="wskice的技术分享,使用云服务器当git仓库并与本地文件进行同步本教程用于实现:通过git将自己的项目部署到自己的云服务器上,让每一步git提交都可以实现文件的更新可用于博客部署，服务器部署，前端页面部署等。。。。
+前,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Wskice</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">使用云服务器当git仓库并与本地文件进行同步</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">使用云服务器当git仓库并与本地文件进行同步</h1>
+        <div class="stuff">
+            <span>三月 21, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/git/" rel="tag">git</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">云服务器</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" rel="tag">学习资料</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="使用云服务器当git仓库并与本地文件进行同步"><a href="#使用云服务器当git仓库并与本地文件进行同步" class="headerlink" title="使用云服务器当git仓库并与本地文件进行同步"></a>使用云服务器当git仓库并与本地文件进行同步</h1><p>本教程用于实现:通过git将自己的项目部署到自己的云服务器上,让每一步git提交都可以实现文件的更新<br>可用于博客部署，服务器部署，前端页面部署等。。。。</p>
+<h4 id="前置"><a href="#前置" class="headerlink" title="前置:"></a>前置:</h4><p>1.linux云服务器</p>
+<p>2.云服务器的公网ip</p>
+<p>3.git软件</p>
+<p>4.自己的电脑</p>
+<h2 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h2><p>在服务器安装git</p>
+<p>在自己的电脑上安装git</p>
+<p>(不会的同学直接百度)</p>
+<p>查看git是否安装成功:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-创建服务器上的git用户"><a href="#2-创建服务器上的git用户" class="headerlink" title="2.创建服务器上的git用户"></a>2.创建服务器上的git用户</h2><p>打开终端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建用户</span></span><br><span class="line">adduser &lt;用户名&gt;</span><br><span class="line">passwd &lt;密码&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改用户使用权限</span></span><br><span class="line">chmod 740 /etc/sudoers</span><br><span class="line">echo &quot;root    ALL=(ALL)    ALL&quot; &gt;&gt; /etc/sudoers</span><br><span class="line">echo &quot;&lt;用户名&gt;    ALL=(ALL)    ALL&quot; &gt;&gt; /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<p>以修改用户使用权限的，如果使用root做操作git的用户的可不必执行最后一行命令</p>
+<h2 id="3-建立git仓库"><a href="#3-建立git仓库" class="headerlink" title="3.建立git仓库"></a>3.建立git仓库</h2><p>以下操作我以<code>abc</code>为用户名<code>111111</code>为密码演示</p>
+<p>3.1启动管理员权限命令行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
+
+<p>3.2进入git存放目录</p>
+<p>没有用户目录的可以自己新建一个</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/&lt;用户名&gt;</span><br><span class="line">cd /home/&lt;用户名&gt;/</span><br></pre></td></tr></table></figure>
+
+<p>3.3建立git仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare &lt;仓库名称&gt;.git</span><br></pre></td></tr></table></figure>
+
+<p>3.4仓库修改权限及归属</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown &lt;用户名&gt;:&lt;用户名组名&gt; -R &lt;仓库名称&gt;.git</span><br></pre></td></tr></table></figure>
+
+<p>用户名组名可以随意设置，可以和用户名保持一致，只限英文</p>
+<p>例：<code>chown abc:abc -R cangku.git</code></p>
+<h2 id="4-修改git仓库同步文件目录"><a href="#4-修改git仓库同步文件目录" class="headerlink" title="4.修改git仓库同步文件目录"></a>4.修改git仓库同步文件目录</h2><p>vim命令打开文件后，按i键进入编辑模式</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /home/&lt;用户名&gt;/&lt;仓库文件夹名字&gt;/&lt;仓库名称&gt;.git/hook/post-receive</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line">git --work-tree=/home/&lt;用户名&gt;/&lt;git仓库同步文件目录&gt; --git-dir=/home/&lt;用户名&gt;/&lt;仓库名称&gt;.git checkout -f</span><br></pre></td></tr></table></figure>
+
+<p>输入完按<code>esc</code>键(键盘最左上角那个),然后输入<code>:wq</code>后回车就完成编辑并保存退出了。</p>
+<p><strong>修改git仓库钩子函数文件的读写权限:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chomd +x /home/&lt;用户名&gt;/&lt;仓库名称&gt;.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-测试云服务器git仓库是否可以提交文件"><a href="#5-测试云服务器git仓库是否可以提交文件" class="headerlink" title="5.测试云服务器git仓库是否可以提交文件"></a>5.测试云服务器git仓库是否可以提交文件</h2><p>5.1克隆git仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;系统桌面文件夹&gt;</span><br><span class="line">git clone &lt;用户名&gt;@&lt;云服务器ip&gt;:/home/&lt;用户名&gt;/&lt;git仓库名&gt;.git</span><br></pre></td></tr></table></figure>
+
+<p>此时需要输入yes同意，并输入&lt;用户名&gt;对应的&lt;密码&gt;回车即可</p>
+<p>5.2往克隆下来的git仓库同步文件夹里随意放一个文件并提交</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#x27;提交测试&#x27;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>输入输入&lt;用户名&gt;对应的&lt;密码&gt;回车</p>
+<p>5.3在服务器查看 git仓库同步文件夹 里是否有刚刚提交的文件</p>
+<p>如果有那么 ——</p>
+<h3 id="恭喜你成功在云服务器上建立git仓库并同步文件🎉！"><a href="#恭喜你成功在云服务器上建立git仓库并同步文件🎉！" class="headerlink" title="恭喜你成功在云服务器上建立git仓库并同步文件🎉！"></a>恭喜你成功在云服务器上建立git仓库并同步文件🎉！</h3>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BD%93git%E4%BB%93%E5%BA%93%E5%B9%B6%E4%B8%8E%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%90%8C%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">使用云服务器当git仓库并与本地文件进行同步</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">前置:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85git"><span class="toc-number">1.1.</span> <span class="toc-text">1.安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84git%E7%94%A8%E6%88%B7"><span class="toc-number">1.2.</span> <span class="toc-text">2.创建服务器上的git用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%BB%BA%E7%AB%8Bgit%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.</span> <span class="toc-text">3.建立git仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9git%E4%BB%93%E5%BA%93%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="toc-number">1.4.</span> <span class="toc-text">4.修改git仓库同步文件目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%B5%8B%E8%AF%95%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8git%E4%BB%93%E5%BA%93%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6"><span class="toc-number">1.5.</span> <span class="toc-text">5.测试云服务器git仓库是否可以提交文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%AD%E5%96%9C%E4%BD%A0%E6%88%90%E5%8A%9F%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%BB%BA%E7%AB%8Bgit%E4%BB%93%E5%BA%93%E5%B9%B6%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%F0%9F%8E%89%EF%BC%81"><span class="toc-number">1.5.1.</span> <span class="toc-text">恭喜你成功在云服务器上建立git仓库并同步文件🎉！</span></a></li></ol></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

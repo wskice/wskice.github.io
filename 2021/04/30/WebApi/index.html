@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WebApi笔记 - Wskice</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="wskice的技术分享,WebApiDOM查找元素的方法12345678910111213141516171.document.getElementById(&amp;#x27;ID值&amp;#x27;)  参数:区分大小写,不要加# ,"> 
+    <meta name="author" content="wskice"> 
+    <link rel="alternative" href="atom.xml" title="Wskice" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="WebApi笔记 - Wskice"/>
+    <meta name="twitter:description" content="wskice的技术分享,WebApiDOM查找元素的方法12345678910111213141516171.document.getElementById(&amp;#x27;ID值&amp;#x27;)  参数:区分大小写,不要加# ,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Wskice"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="WebApi笔记 - Wskice"/>
+    <meta property="og:description" content="wskice的技术分享,WebApiDOM查找元素的方法12345678910111213141516171.document.getElementById(&amp;#x27;ID值&amp;#x27;)  参数:区分大小写,不要加# ,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Wskice</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">WebApi笔记</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">WebApi笔记</h1>
+        <div class="stuff">
+            <span>四月 30, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/webapi/" rel="tag">webapi</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" rel="tag">学习资料</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="WebApi"><a href="#WebApi" class="headerlink" title="WebApi"></a>WebApi</h1><h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><h3 id="查找元素的方法"><a href="#查找元素的方法" class="headerlink" title="查找元素的方法"></a>查找元素的方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;ID值&#x27;</span>)</span><br><span class="line">  参数:区分大小写,不要加#</span><br><span class="line">  返回值:元素对象或<span class="literal">null</span></span><br><span class="line"><span class="number">2.</span><span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;class名&#x27;</span>)</span><br><span class="line">  参数:区分大小写  不用加.</span><br><span class="line">  返回值:元素对象集合,以伪数组的形式保存</span><br><span class="line"><span class="number">3.</span><span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;标签名&#x27;</span>);</span><br><span class="line">  参数:标签名</span><br><span class="line">  返回值:元素对象集合,以伪数组的形式保存</span><br><span class="line"><span class="number">4.</span><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;css选择器&#x27;</span>)</span><br><span class="line">	参数:css选择器</span><br><span class="line">  返回值:元素对象</span><br><span class="line">  <span class="comment">// 只会获取第一个元素</span></span><br><span class="line"><span class="number">5.</span><span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;css选择器&#x27;</span>)</span><br><span class="line">	参数:css选择器</span><br><span class="line">  返回值:元素对象集合,以伪数组的形式保存</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="生词表："><a href="#生词表：" class="headerlink" title="生词表："></a>生词表：</h3><table>
+<thead>
+<tr>
+<th>生词</th>
+<th>翻译</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>document</td>
+<td>文档</td>
+</tr>
+<tr>
+<td>element</td>
+<td>元素</td>
+</tr>
+<tr>
+<td>node</td>
+<td>节点</td>
+</tr>
+<tr>
+<td>Attribute</td>
+<td>属性</td>
+</tr>
+<tr>
+<td>Sibling</td>
+<td>兄弟</td>
+</tr>
+<tr>
+<td>insert</td>
+<td>插入</td>
+</tr>
+<tr>
+<td>inner</td>
+<td>内部</td>
+</tr>
+<tr>
+<td>create</td>
+<td>创造</td>
+</tr>
+<tr>
+<td>remove</td>
+<td>移除</td>
+</tr>
+<tr>
+<td>eventTarget</td>
+<td>事件目标</td>
+</tr>
+<tr>
+<td>toggle</td>
+<td>切换</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>偏移</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="鼠标事件1"><a href="#鼠标事件1" class="headerlink" title="鼠标事件1:"></a>鼠标事件1:</h3><table>
+<thead>
+<tr>
+<th>鼠标事件</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onclick</td>
+<td>鼠标点击左键触发事件</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td>鼠标经过触发</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>鼠标离开触发</td>
+</tr>
+<tr>
+<td>onfocus</td>
+<td>获取鼠标焦点触发(一般用于input)</td>
+</tr>
+<tr>
+<td>onblur</td>
+<td>失去鼠标焦点触发(一般用于input)</td>
+</tr>
+<tr>
+<td>onmousemove</td>
+<td>鼠标移动触发</td>
+</tr>
+<tr>
+<td>onmouseup</td>
+<td>鼠标弹起触发</td>
+</tr>
+<tr>
+<td>onmousedown</td>
+<td>鼠标按下触发</td>
+</tr>
+<tr>
+<td>ondblclick</td>
+<td>鼠标双击触发</td>
+</tr>
+<tr>
+<td>oncontextmenu</td>
+<td>禁止鼠标右键菜单</td>
+</tr>
+<tr>
+<td>onselectstart</td>
+<td>禁止鼠标选中</td>
+</tr>
+</tbody></table>
+<p>语法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">querySlector</span>(<span class="string">&#x27;botton&#x27;</span>) <span class="comment">//获取一个按钮</span></span><br><span class="line">a.<span class="property">onclick</span> = funcation ()&#123;  <span class="comment">// 设置按钮点击时触发的事件</span></span><br><span class="line">  <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">bgColor</span> = <span class="string">&#x27;pink&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="更改元素内容"><a href="#更改元素内容" class="headerlink" title="更改元素内容:"></a>更改元素内容:</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="property">innerText</span>  <span class="comment">// 前边的element是元素,需先查找</span></span><br><span class="line">更改元素内的文本内容(会去除空格和换行)</span><br><span class="line">获取元素内的文本内容</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">element.<span class="property">innerHTML</span>  <span class="comment">// 前边的element是元素,需先查找</span></span><br><span class="line">更改元素内容(包括标签里的所有<span class="variable constant_">HTML</span>内容,保留空格和换行)</span><br><span class="line">获取元素内容(包括标签里的所有<span class="variable constant_">HTML</span>内容)</span><br><span class="line"></span><br><span class="line">语法:</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>获取内容</span><br><span class="line"><span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">querySlector</span>(<span class="string">&#x27;span&#x27;</span>) <span class="comment">//获取一个span标签</span></span><br><span class="line"><span class="keyword">var</span> getText = a.<span class="property">innerText</span> <span class="comment">//获取span标签里的内容</span></span><br><span class="line">conselo.<span class="title function_">log</span>(getText) <span class="comment">// 打印span表情里的内容</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">querySlector</span>(<span class="string">&#x27;div&#x27;</span>) <span class="comment">//获取一个div标签</span></span><br><span class="line"><span class="keyword">var</span> getHtml = a.<span class="property">innerHtml</span> <span class="comment">//获取span标签里的内容</span></span><br><span class="line">conselo.<span class="title function_">log</span>(getText) <span class="comment">// 打印span表情里的内容</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>修改内容</span><br><span class="line"><span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">querySlector</span>(<span class="string">&#x27;span&#x27;</span>) <span class="comment">//获取一个span标签</span></span><br><span class="line">a.<span class="property">innerText</span> = <span class="string">&#x27;要修改的文本内容&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">querySlector</span>(<span class="string">&#x27;div&#x27;</span>) <span class="comment">//获取一个div标签</span></span><br><span class="line">a.<span class="property">innerHTML</span> = <span class="string">&#x27;要修改的元素内容&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="元素操作："><a href="#元素操作：" class="headerlink" title="元素操作："></a>元素操作：</h3><h4 id="获取、元素属性"><a href="#获取、元素属性" class="headerlink" title="获取、元素属性:"></a>获取、元素属性:</h4><p>属性直接.出来</p>
+<p>获取属性值:</p>
+<p>Element.getAttribute(‘自定义属性名’)</p>
+<p>设置属性:</p>
+<p>Element.setAttribute(‘属性名’,属性值)</p>
+<h4 id="H5新增dataset"><a href="#H5新增dataset" class="headerlink" title="H5新增dataset"></a>H5新增dataset</h4><p>在HTML5中我们可以使用data-前缀设置我们需要的自定义属性,来进行数据存放  使用data-set可以获取这些数据</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#x27;aaa&#x27;</span> <span class="attr">data-food</span>=<span class="string">&#x27;皮皮虾&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&#x27;text/javascript&#x27;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">var</span> len = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;aaa&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(len.<span class="property">dataset</span>.<span class="property">food</span>) <span class="comment">//打印出皮皮虾</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">delete</span> len.<span class="property">dataset</span>.<span class="property">food</span> <span class="comment">// 删除元素的data-food属性</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>设置data属性:</p>
+<p>Element.setAttribute(‘属性名’)</p>
+<p>直接:</p>
+<p>元素.dataset.属性名 &#x3D; 值</p>
+<p>获取data属性</p>
+<p>element.dataset.data属性名</p>
+<p>删除data属性</p>
+<p>delete  元素.dataset.data属性名</p>
+<hr>
+<h4 id="创建元素-createElement"><a href="#创建元素-createElement" class="headerlink" title="创建元素:createElement"></a>创建元素:createElement</h4><p>var a &#x3D; document.createElement(‘标签名’)</p>
+<h4 id="追加元素-增添元素"><a href="#追加元素-增添元素" class="headerlink" title="追加元素(增添元素):"></a>追加元素(增添元素):</h4><p>node.appendChild(元素对象) </p>
+<p>或 node.appendChild(‘元素标签名’)   添加一个标签</p>
+<h4 id="查找元素子节点元素-查找元素下所有的元素"><a href="#查找元素子节点元素-查找元素下所有的元素" class="headerlink" title="查找元素子节点元素:(查找元素下所有的元素)"></a>查找元素子节点元素:(查找元素下所有的元素)</h4><p>返回值为一个装着子元素的伪数组</p>
+<p>元素.children</p>
+<p>获取到的子节点元素以伪数组的形式保存,可通过下标访问</p>
+<h4 id="获取父亲节点"><a href="#获取父亲节点" class="headerlink" title="获取父亲节点:"></a>获取父亲节点:</h4><p>元素.parentNode</p>
+<h4 id="获取下一个兄弟元素"><a href="#获取下一个兄弟元素" class="headerlink" title="获取下一个兄弟元素:"></a>获取下一个兄弟元素:</h4><p>元素.nextElementSibling</p>
+<h4 id="获取上一个兄弟元素"><a href="#获取上一个兄弟元素" class="headerlink" title="获取上一个兄弟元素:"></a>获取上一个兄弟元素:</h4><p>元素.previousElementSibling</p>
+<hr>
+<h4 id="删除子元素"><a href="#删除子元素" class="headerlink" title="删除子元素:"></a>删除子元素:</h4><p>语法：</p>
+<p>父元素.removeChild(实参1)</p>
+<p>实参1为元素或则子节点元素</p>
+<p>作用：删除这个父元素里的指定子元素</p>
+<h4 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素:"></a>删除元素:</h4><p>元素.remove()</p>
+<p>直接删除当前元素</p>
+<p>(伪)数组.remove(数据)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">元素.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;color&#x27;</span>)</span><br><span class="line"><span class="comment">// 删除元素class名列表里的color名</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="在父元素前面添加节点-或元素"><a href="#在父元素前面添加节点-或元素" class="headerlink" title="在父元素前面添加节点(或元素):"></a>在父元素前面添加节点(或元素):</h4><p>父元素.insertBefore(要添加的元素,添加的位置节点)</p>
+<h4 id="事件监听-多使用事件"><a href="#事件监听-多使用事件" class="headerlink" title="事件监听(多使用事件)"></a>事件监听(多使用事件)</h4><p>addEventListener(‘事件类型’,事件处理程序,false)</p>
+<p>参数1:事件类型</p>
+<p>参数2:事件处理程序</p>
+<p>参数3:控制是否冒泡(布尔型,默认是false,冒泡模式)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// btn为获取的元素</span></span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">	<span class="title function_">alert</span>(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">	<span class="title function_">alert</span>(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意 : 事件类型不加on</strong></p>
+<h4 id="移除监听事件"><a href="#移除监听事件" class="headerlink" title="移除监听事件:"></a>移除监听事件:</h4><p>元素.removeEventListener(‘事件名’,函数方法)</p>
+<p>元素.removeEventListener(‘事件名’,函数方法)</p>
+<h4 id="事件函数的形参-event"><a href="#事件函数的形参-event" class="headerlink" title="事件函数的形参:event"></a>事件函数的形参:event</h4><p>event.target 可获取一些元素的属性</p>
+<p>event.target相当于触发事件的元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">元素.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">  event.<span class="property">target</span>.<span class="property">nodeName</span> <span class="comment">//获取元素标签名</span></span><br><span class="line">	event.<span class="property">target</span>.<span class="property">classList</span> <span class="comment">//获取元素的类名伪数组</span></span><br><span class="line">  event.<span class="property">target</span>.<span class="property">innerHTML</span> <span class="comment">//获取元素的内容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="清除事件"><a href="#清除事件" class="headerlink" title="清除事件:"></a>清除事件:</h4><p>元素.事件 &#x3D; null</p>
+<p>例:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="property">onclick</span> = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="清除事件监听"><a href="#清除事件监听" class="headerlink" title="清除事件监听:"></a>清除事件监听:</h4><p>元素.removeEventListener(type, listener[,useCapture]) ;</p>
+<p>元素.detachEvent(eventNameWithOn,callback);</p>
+<hr>
+<h4 id="阻止标签（元素）默认行为："><a href="#阻止标签（元素）默认行为：" class="headerlink" title="阻止标签（元素）默认行为："></a>阻止标签（元素）默认行为：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">元素.<span class="title function_">preventDefault</span>()</span><br><span class="line">e.<span class="title function_">preventDefault</span>()</span><br><span class="line"><span class="comment">// 阻止元素默认行为  DOM标准写法</span></span><br></pre></td></tr></table></figure>
+
+<p>兼容ie8的写法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">元素.<span class="property">returnValue</span> = <span class="literal">false</span></span><br><span class="line"><span class="comment">// 我们可以利用return false 也能阻止默认行为 没有兼容问题</span></span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="DOM元素的操作："><a href="#DOM元素的操作：" class="headerlink" title="DOM元素的操作："></a>DOM元素的操作：</h3><p>对于dom操作,我们主要针对元素的操作.主要有创建、增、删、改、查、属性操作、事件操作.</p>
+<h4 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建 :"></a>1.创建 :</h4><ol>
+<li>document.write  ——  向文档写入数据</li>
+<li>innerHTML  ——  写入标签体内容(包括标签和空格和换行)</li>
+<li>innerText  ——  写入标签体内容(纯文本,不包含标签和空格和换行)</li>
+<li>createElement  ——  创建一个元素</li>
+</ol>
+<h4 id="2-增加"><a href="#2-增加" class="headerlink" title="2.增加 :"></a>2.增加 :</h4><ol>
+<li>appendChild  ——  添加一个子元素</li>
+<li>insertBefore  ——  在元素之前添加一个元素(兄弟元素)</li>
+</ol>
+<h4 id="3-删除"><a href="#3-删除" class="headerlink" title="3.删除 :"></a>3.删除 :</h4><ol>
+<li>removeChild  ——  删除元素的子元素</li>
+<li>remove()  ——  删除当前元素,括号里可以写冒号里边写删除目标的名字</li>
+</ol>
+<h4 id="4-修改"><a href="#4-修改" class="headerlink" title="4.修改 :"></a>4.修改 :</h4><p>主要修改dom的元素属性,dom元素的内容、属性,表单的值等</p>
+<ol>
+<li>修改元素属性 : src 、 href 、 title 、 checked等</li>
+<li>修改普通元素内容 : innerHTML 、 innerText</li>
+<li>修改表单元素 : value 、 type 、 disabled 等</li>
+<li>修改元素样式 : style 、 className</li>
+</ol>
+<h4 id="5-查询"><a href="#5-查询" class="headerlink" title="5.查询 :"></a>5.查询 :</h4><p>主要获取查询dom的元素</p>
+<ol>
+<li>DOM提供的API方法 : getElementById 、 getElementsByTagName 古老用法 不推荐</li>
+<li>H5提供的新方法 : querySelector 、 querySelectorAll  提倡</li>
+</ol>
+<h4 id="6-属性操作"><a href="#6-属性操作" class="headerlink" title="6.属性操作:"></a>6.属性操作:</h4><p>主要针对自定属性</p>
+<ol>
+<li>setAttribute : 设置dom元素的属性值</li>
+<li>getAttribute : 获得dom元素的属性值</li>
+<li>removeAttribute 移除元素属性</li>
+</ol>
+<h4 id="事件高级："><a href="#事件高级：" class="headerlink" title="事件高级："></a>事件高级：</h4><p>注册事件有两种方式</p>
+<h4 id="1-普通事件绑定："><a href="#1-普通事件绑定：" class="headerlink" title="1.普通事件绑定："></a>1.普通事件绑定：</h4><h4 id="2-事件监听："><a href="#2-事件监听：" class="headerlink" title="2.事件监听："></a>2.事件监听：</h4><p>addEventListener()事件监听 (IE9以后支持)</p>
+<p>eventTarget.addEventListener(参数1，参数2，参数3)</p>
+<p>方法将制定的监听器注册到eventTarget（目标对象）上，对该对象触发指定的事件时，就会处理处理函数。</p>
+<hr>
+<h4 id="阻止事件冒泡："><a href="#阻止事件冒泡：" class="headerlink" title="阻止事件冒泡："></a>阻止事件冒泡：</h4><p>StopPropagetion()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>)</span><br><span class="line">btn.<span class="title function_">stopPropagation</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="阻止a标签的跳转功能："><a href="#阻止a标签的跳转功能：" class="headerlink" title="阻止a标签的跳转功能："></a>阻止a标签的跳转功能：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0);&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="鼠标事件2："><a href="#鼠标事件2：" class="headerlink" title="鼠标事件2："></a>鼠标事件2：</h3><table>
+<thead>
+<tr>
+<th>鼠标事件对象</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>e.clientX</td>
+<td>返回鼠标相对于浏览器窗口可视区的X坐标</td>
+</tr>
+<tr>
+<td>e.clientY</td>
+<td>返回鼠标相对于浏览器窗口可视区的Y坐标</td>
+</tr>
+<tr>
+<td>e.pageX</td>
+<td>返回鼠相对于文档页面的X坐标ie9+支持</td>
+</tr>
+<tr>
+<td>e.pageY</td>
+<td>返回鼠相对于文档页面的Y坐标ie9+支持</td>
+</tr>
+<tr>
+<td>e.screenX</td>
+<td>返回鼠标相对于电脑屏幕的X坐标</td>
+</tr>
+<tr>
+<td>e.screenY</td>
+<td>返回鼠标相对于电脑屏幕的Y坐标</td>
+</tr>
+</tbody></table>
+<h4 id="禁止鼠标右键菜单："><a href="#禁止鼠标右键菜单：" class="headerlink" title="禁止鼠标右键菜单："></a>禁止鼠标右键菜单：</h4><p>contextmenu (事件)</p>
+<p>作用：控制应该何时显示上下文菜单，主要用于程序员取消默认的上下文菜单</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Element</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;contextmenu&#x27;</span>,<span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">  <span class="comment">//事件内容</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="禁止鼠标选中：-（selectstart）"><a href="#禁止鼠标选中：-（selectstart）" class="headerlink" title="禁止鼠标选中： （selectstart）"></a>禁止鼠标选中： （selectstart）</h4><p>selectstart (事件)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&#x27;selectstart&#x27;</span>,<span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">    <span class="comment">//事件内容</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="键盘事件："><a href="#键盘事件：" class="headerlink" title="键盘事件："></a>键盘事件：</h3><table>
+<thead>
+<tr>
+<th>键盘事件</th>
+<th>触发</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Keydown</td>
+<td>键盘按下的时候</td>
+</tr>
+<tr>
+<td>Keypress</td>
+<td>键盘按下时（不能识别功能键）</td>
+</tr>
+<tr>
+<td>keyup</td>
+<td>键盘弹起的时候</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="keydown键盘按下事件："><a href="#keydown键盘按下事件：" class="headerlink" title="keydown键盘按下事件："></a>keydown键盘按下事件：</h4><p>通过事件监听设置键盘按下事件</p>
+<p>作用：通过键盘按下实现某些功能</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keydown&#x27;</span>,<span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;222&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 在页面中按下键盘任意键的时候在控制台输出222</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Keypress键盘输入事件："><a href="#Keypress键盘输入事件：" class="headerlink" title="Keypress键盘输入事件："></a>Keypress键盘输入事件：</h4><p>通过事件监听设置键盘输入事件</p>
+<p>作用：通过键盘按下实现某些功能</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keypress&#x27;</span>,<span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;111&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 在页面中按下键盘任意键的时候在控制台输出111</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="keyup键盘弹起事件："><a href="#keyup键盘弹起事件：" class="headerlink" title="keyup键盘弹起事件："></a>keyup键盘弹起事件：</h4><p>通过事件监听设置键盘弹起事件</p>
+<p>作用：通过键盘弹起实现某些功能</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keyup&#x27;</span>,<span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;333&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 在页面中按下键盘任意键弹起的时候在控制台输出333</span></span><br></pre></td></tr></table></figure>
+
+<p><em>在页面中按下键盘任意键 <strong>弹起</strong> 的时候在控制台输出333</em></p>
+<h3 id="ASCII表："><a href="#ASCII表：" class="headerlink" title="ASCII表："></a>ASCII表：</h3><h5 id="字母键ASCII表："><a href="#字母键ASCII表：" class="headerlink" title="字母键ASCII表："></a>字母键ASCII表：</h5><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>键码</th>
+<th>按键</th>
+<th>键码</th>
+<th>按键</th>
+<th>键码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>65</td>
+<td>J</td>
+<td>74</td>
+<td>S</td>
+<td>83</td>
+</tr>
+<tr>
+<td>B</td>
+<td>66</td>
+<td>K</td>
+<td>75</td>
+<td>T</td>
+<td>84</td>
+</tr>
+<tr>
+<td>C</td>
+<td>67</td>
+<td>L</td>
+<td>76</td>
+<td>U</td>
+<td>85</td>
+</tr>
+<tr>
+<td>D</td>
+<td>68</td>
+<td>M</td>
+<td>77</td>
+<td>V</td>
+<td>86</td>
+</tr>
+<tr>
+<td>E</td>
+<td>69</td>
+<td>N</td>
+<td>78</td>
+<td>W</td>
+<td>87</td>
+</tr>
+<tr>
+<td>F</td>
+<td>70</td>
+<td>O</td>
+<td>79</td>
+<td>X</td>
+<td>88</td>
+</tr>
+<tr>
+<td>G</td>
+<td>71</td>
+<td>P</td>
+<td>80</td>
+<td>Y</td>
+<td>89</td>
+</tr>
+<tr>
+<td>H</td>
+<td>72</td>
+<td>Q</td>
+<td>81</td>
+<td>Z</td>
+<td>90</td>
+</tr>
+<tr>
+<td>I</td>
+<td>73</td>
+<td>R</td>
+<td>82</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>数字键上的ASCII码：</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>键码</th>
+<th>按键</th>
+<th>键码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>49</td>
+<td>6</td>
+<td>54</td>
+</tr>
+<tr>
+<td>2</td>
+<td>50</td>
+<td>7</td>
+<td>55</td>
+</tr>
+<tr>
+<td>3</td>
+<td>51</td>
+<td>8</td>
+<td>56</td>
+</tr>
+<tr>
+<td>4</td>
+<td>52</td>
+<td>9</td>
+<td>57</td>
+</tr>
+<tr>
+<td>5</td>
+<td>53</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="数字键盘上的键ASCII表："><a href="#数字键盘上的键ASCII表：" class="headerlink" title="数字键盘上的键ASCII表："></a>数字键盘上的键ASCII表：</h5><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>键码</th>
+<th>按键</th>
+<th>键码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>96</td>
+<td>8</td>
+<td>104</td>
+</tr>
+<tr>
+<td>1</td>
+<td>97</td>
+<td>9</td>
+<td>105</td>
+</tr>
+<tr>
+<td>2</td>
+<td>98</td>
+<td>*</td>
+<td>106</td>
+</tr>
+<tr>
+<td>3</td>
+<td>99</td>
+<td>+</td>
+<td>107</td>
+</tr>
+<tr>
+<td>4</td>
+<td>100</td>
+<td>Enter</td>
+<td>108</td>
+</tr>
+<tr>
+<td>5</td>
+<td>101</td>
+<td>-</td>
+<td>109</td>
+</tr>
+<tr>
+<td>6</td>
+<td>102</td>
+<td>.</td>
+<td>110</td>
+</tr>
+<tr>
+<td>7</td>
+<td>103</td>
+<td>&#x2F;</td>
+<td>111</td>
+</tr>
+</tbody></table>
+<h5 id="功能键ASCII表："><a href="#功能键ASCII表：" class="headerlink" title="功能键ASCII表："></a>功能键ASCII表：</h5><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>键码</th>
+<th>按键</th>
+<th>键码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F1</td>
+<td>112</td>
+<td>F7</td>
+<td>118</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>113</td>
+<td>F8</td>
+<td>119</td>
+</tr>
+<tr>
+<td>F3</td>
+<td>114</td>
+<td>F9</td>
+<td>120</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>115</td>
+<td>F10</td>
+<td>121</td>
+</tr>
+<tr>
+<td>F5</td>
+<td>116</td>
+<td>F11</td>
+<td>122</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>117</td>
+<td>F12</td>
+<td>123</td>
+</tr>
+</tbody></table>
+<h4 id="键盘事件执行顺序："><a href="#键盘事件执行顺序：" class="headerlink" title="键盘事件执行顺序："></a>键盘事件执行顺序：</h4><p>keydown  &gt;  keypress  &gt;  keyup</p>
+<h4 id="键盘事件区别："><a href="#键盘事件区别：" class="headerlink" title="键盘事件区别："></a>键盘事件区别：</h4><p>keydown 和 keyup 不能识别键盘大小写，keypress可以识别</p>
+<p>keydown 和 keyup 能识别键盘的功能键，keypress不能识别功能键</p>
+<h4 id="属性key-键盘键名-："><a href="#属性key-键盘键名-：" class="headerlink" title="属性key(键盘键名)："></a>属性key(键盘键名)：</h4><p>作用：获取键盘输入的东西</p>
+<p>通过事件监听的event形参.key 可获得输入的键盘键名,配合 <strong>key事件</strong> 使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keydown&#x27;</span>,<span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">key</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 当键盘按下的时候控制台输出键盘按下的键名</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="属性keyCode-键盘按下输出对应的ASCII码-："><a href="#属性keyCode-键盘按下输出对应的ASCII码-：" class="headerlink" title="属性keyCode(键盘按下输出对应的ASCII码)："></a>属性keyCode(键盘按下输出对应的ASCII码)：</h4><p>作用：获取键盘输入的键对应的ASCII码</p>
+<p>通过事件监听的event形参.key 可获得输入的键盘键名,配合 <strong>key事件</strong> 使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keydown&#x27;</span>,<span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">keyCode</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 当键盘按下的时候控制台输出键盘按下的键对应的ASCII码</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="元素的offset属性-offset系列"><a href="#元素的offset属性-offset系列" class="headerlink" title="元素的offset属性(offset系列)"></a>元素的offset属性(offset系列)</h3><p>概述:offset翻译过来就是偏移量,我们使用offset系列相关属性可以动态的得到该元素的位置(偏移量)、大小等.</p>
+<ol>
+<li>获得元素距离带有定位父元素的位置</li>
+<li>获得元素自身的大小(宽度高度)</li>
+<li>注意:返回的数值都不带单位</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>offset系列属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Element.offsetParent</td>
+<td>返回作为该元素带有定位的父级元素,如果父级都没有定位则返回body(返回距离当前元素最近的带有定位的父级元素)</td>
+</tr>
+<tr>
+<td>element.offsetTop</td>
+<td>返回元素相对于 <strong>带有定位的父级元素</strong> 上方的偏移</td>
+</tr>
+<tr>
+<td>element.offsetLaeft</td>
+<td>返回元素相对于 <strong>带有定位的父级元素</strong> 左边的偏移</td>
+</tr>
+<tr>
+<td>Element.offsetWidth</td>
+<td>返回自身包括padding、边框、内容区的宽度、返回数值不带单位(只读属性)</td>
+</tr>
+<tr>
+<td>element.offsetHeight</td>
+<td>返回自身包括padding、边框、内容区的高度、返回数值不带单位</td>
+</tr>
+</tbody></table>
+<h3 id="offset-与-style-区别"><a href="#offset-与-style-区别" class="headerlink" title="offset 与 style 区别"></a>offset 与 style 区别</h3><h4 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h4><ul>
+<li><p>offset 可以得到任意样式表中的样式值</p>
+</li>
+<li><p>offset 系列获得的数值是没有单位的</p>
+</li>
+<li><p>offsetWidth 包含padding+border+width</p>
+</li>
+<li><p>offsetWidth 等属性是只读属性，只能获取不能赋值</p>
+</li>
+<li><blockquote>
+<p>所以，我们想要获取元素大小位置，用offset更合适</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="style"><a href="#style" class="headerlink" title="style"></a>style</h4><ul>
+<li><p>style 只能得到行内样式表中的样式值</p>
+</li>
+<li><p>style.width 获得的是带有单位的字符串</p>
+</li>
+<li><p>style.width 获得不包含padding和border 的值</p>
+</li>
+<li><p>style.width 是可读写属性，可以获取也可以赋值</p>
+</li>
+<li><blockquote>
+<p>所以，我们想要给元素更改值，则需要用style改变</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>因为平时我们都是给元素注册触摸事件，所以重点记住 targetTocuhes</strong></p>
+</blockquote>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h4 id="获取鼠标在盒子内的坐标"><a href="#获取鼠标在盒子内的坐标" class="headerlink" title="获取鼠标在盒子内的坐标"></a>获取鼠标在盒子内的坐标</h4><p>利用鼠标距离页面的距离和元素距离页面的距离</p>
+<h4 id="下拉框的change事件-发生改变触发事件"><a href="#下拉框的change事件-发生改变触发事件" class="headerlink" title="下拉框的change事件 (发生改变触发事件)"></a>下拉框的change事件 (发生改变触发事件)</h4><p>通过改变下拉框的选项改变,触发事件</p>
+<h4 id="下拉框的selectIndex属性-可读可写"><a href="#下拉框的selectIndex属性-可读可写" class="headerlink" title="下拉框的selectIndex属性(可读可写)"></a>下拉框的selectIndex属性(可读可写)</h4><p>实际返回值是select选项(option)中选中的下标</p>
+<p>let select &#x3D;  document.querySelector(‘select’)</p>
+<p>获取到下拉框后</p>
+<p>console.log(select.selectIndex)</p>
+<p>可打印下标值</p>
+<hr>
+<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><h3 id="window事件："><a href="#window事件：" class="headerlink" title="window事件："></a>window事件：</h3><table>
+<thead>
+<tr>
+<th>window事件</th>
+<th>触发</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>load</td>
+<td>当页面加载完后触发</td>
+</tr>
+<tr>
+<td>DOMContentLoaded</td>
+<td>当DOM加载完后触发(不包括css,图片等)</td>
+</tr>
+<tr>
+<td>resize</td>
+<td>当前浏览器窗口大小发生变化时触发</td>
+</tr>
+</tbody></table>
+<h4 id="页面（窗口）加载事件1：（load事件）"><a href="#页面（窗口）加载事件1：（load事件）" class="headerlink" title="页面（窗口）加载事件1：（load事件）"></a>页面（窗口）加载事件1：（load事件）</h4><p>load事件：等待所有的dom元素  图片  css  等全部加载完毕之后再来执行load的处理程序</p>
+<p>一般情况是写在body标签前面，因为会等body里面的东西加载完后执行load的处理程序</p>
+<p>作用：等页面渲染完后在执行javasrcipt代码，防止页面加载时间过长，加快页面渲染速度</p>
+<p>语法：(需要用到事件监听,或普通的绑定事件)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 事件监听</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">//这里写页面加载好后的js代码</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通事件绑定</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">//这里写页面加载好后的js代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="页面（窗口）加载事件2：（DOMContentLoaded事件）"><a href="#页面（窗口）加载事件2：（DOMContentLoaded事件）" class="headerlink" title="页面（窗口）加载事件2：（DOMContentLoaded事件）"></a>页面（窗口）加载事件2：（DOMContentLoaded事件）</h4><p>DOMContentLoaded事件触发时，仅当DOM加载完成，不包括样式表，图片，flash等等。</p>
+<p>语法：与load事件已致（上一条）</p>
+<p>如果页面的图片很多的话，从用户访问到onload触发可能需要较长的时间，交互效果就不能实现，必然影响用户体验，此时DOMContentLoaded事件比较合适</p>
+<p><em>注意：IE9以上才支持！</em></p>
+<h4 id="调整窗口大小事件-window-onresize-："><a href="#调整窗口大小事件-window-onresize-：" class="headerlink" title="调整窗口大小事件(window.onresize)："></a>调整窗口大小事件(window.onresize)：</h4><p>resize是调整窗口大小时加载事件，当触发时就调用的处理函数</p>
+<p>语法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.普通事件注册</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onresize</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">// 一般用与响应式布局</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">innerWidth</span> &lt; <span class="number">200</span>)&#123;<span class="comment">//如果浏览器窗口宽度小于200px</span></span><br><span class="line">    box.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&quot;none&quot;</span> <span class="comment">//设置盒子隐藏</span></span><br><span class="line">  &#125;<span class="keyword">else</span>&#123; <span class="comment">//否则</span></span><br><span class="line">    box.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&quot;block&quot;</span> <span class="comment">//设置盒子显示为块元素</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.绑定事件监听</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;resize&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">// 一般用与响应式布局</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">innerWidth</span> &lt; <span class="number">200</span>)&#123;<span class="comment">//如果浏览器窗口宽度小于200px</span></span><br><span class="line">    box.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&quot;none&quot;</span> <span class="comment">//设置盒子隐藏</span></span><br><span class="line">  &#125;<span class="keyword">else</span>&#123; <span class="comment">//否则</span></span><br><span class="line">    box.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&quot;block&quot;</span> <span class="comment">//设置盒子显示为块元素</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意：只要窗口大小发生像素变化，就会触发这个事件</p>
+<h5 id="window-innerWidth-——-当前浏览器窗口宽度"><a href="#window-innerWidth-——-当前浏览器窗口宽度" class="headerlink" title="window.innerWidth  ——  当前浏览器窗口宽度"></a>window.innerWidth  ——  当前浏览器窗口宽度</h5><hr>
+<h3 id="定时器：（回调函数）"><a href="#定时器：（回调函数）" class="headerlink" title="定时器：（回调函数）"></a>定时器：（回调函数）</h3><h4 id="回调函数："><a href="#回调函数：" class="headerlink" title="回调函数："></a>回调函数：</h4><p>简单理解：回调，就是回头调用的意思。上一件事干完，再回头调用这个函数。</p>
+<p>例如：定时器中的调用函数，事件处理函数，也是回调函数</p>
+<h4 id="设置定时器setInterval：（window-setInterval）"><a href="#设置定时器setInterval：（window-setInterval）" class="headerlink" title="设置定时器setInterval：（window.setInterval）"></a>设置定时器setInterval：（window.setInterval）</h4><p>作用：定时器</p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">&#125;,<span class="number">5000</span>)</span><br><span class="line"><span class="comment">// 每隔5000毫秒控制台输出一个1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="设置倒计时定时器setTimeout：（window-setTimeout）"><a href="#设置倒计时定时器setTimeout：（window-setTimeout）" class="headerlink" title="设置倒计时定时器setTimeout：（window.setTimeout）"></a>设置倒计时定时器setTimeout：（window.setTimeout）</h4><p>作用：倒计时执行代码</p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">&#125;,<span class="number">5000</span>)</span><br><span class="line"><span class="comment">// 定时过5000毫秒 后 控制台输出一个1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="清除定时器clearInterval：（window-clearInterval）"><a href="#清除定时器clearInterval：（window-clearInterval）" class="headerlink" title="清除定时器clearInterval：（window.clearInterval）"></a>清除定时器clearInterval：（window.clearInterval）</h4><p>作用：清除 “ 定时器 “</p>
+<p>前提：需设定定时器的标识符（tiemid，名字可以随机），tiemid为定时器存储的唯一标识</p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tiemid =  <span class="variable language_">window</span>.<span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">&#125;,<span class="number">5000</span>)</span><br><span class="line"><span class="comment">// 每隔5000毫秒控制台输出一个1</span></span><br><span class="line">btn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="built_in">clearInterval</span>(tiemid) <span class="comment">//清除定时器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="同步和异步："><a href="#同步和异步：" class="headerlink" title="同步和异步："></a>同步和异步：</h3><p>console.log()  和  定时器</p>
+<p>console.log(‘我是同步代码从上往下执行’)</p>
+<p>定时器为异步代码,后执行</p>
+<p>同步加载，阻塞模式，会阻止浏览器的后续处理</p>
+<p>异步加载，不会阻塞同步代码的加载</p>
+<p>大白话：console.log(同步代码)先执行，定时器(异步代码)后执行</p>
+<h3 id="window下的对象"><a href="#window下的对象" class="headerlink" title="window下的对象"></a>window下的对象</h3><h4 id="location对象的属性"><a href="#location对象的属性" class="headerlink" title="location对象的属性"></a>location对象的属性</h4><p>window对象给我们提供了一个location属性用于获取或设置窗体的URL,并可以用于解析URL . 因为这个属性返回的是一个对象,所以我们将这个属性也称为location对象.</p>
+<p>URL地址:”https:&#x2F;&#x2F;“</p>
+<table>
+<thead>
+<tr>
+<th>location对象属性</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>location.href</td>
+<td>获取或者设置 整个URL(地址)</td>
+</tr>
+<tr>
+<td>location.host</td>
+<td>返回主机(域名) <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></td>
+</tr>
+<tr>
+<td>location.port</td>
+<td>返回端口号 如果未写,返回空字符串</td>
+</tr>
+<tr>
+<td>location.pathname</td>
+<td>设置、返回路径部分(域名地址&#x2F;后面的内容)</td>
+</tr>
+<tr>
+<td>location.search</td>
+<td>返回参数(?后面的东西)</td>
+</tr>
+<tr>
+<td>location.hash</td>
+<td>返回片段  #后面内容 常见于链接 锚点</td>
+</tr>
+</tbody></table>
+<h4 id="location对象的方法"><a href="#location对象的方法" class="headerlink" title="location对象的方法"></a>location对象的方法</h4><table>
+<thead>
+<tr>
+<th>location对象的方法</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>location.assign(newURL)</td>
+<td>跟href一样,可以跳转页面(也称为重定向页面)</td>
+</tr>
+<tr>
+<td>location.replace(newURL)</td>
+<td>替换当前页面,因为不记录历史,所以不能后退页面</td>
+</tr>
+<tr>
+<td>location.reload()</td>
+<td>重新加载页面,相当于刷新按钮或者f5,若果参数为true为强制刷新(清除缓存)</td>
+</tr>
+</tbody></table>
+<h4 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h4><p>​    navigator 对象包含有关<strong>浏览器的信息</strong>，它有很多属性，我们最常用的是 userAgent，该属性可以返回由客户机发送服务器的 user-agent 头部的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(navigator.<span class="property">userAgent</span>)</span><br><span class="line"><span class="comment">//打印的是客户机的浏览器相关信息 </span></span><br><span class="line"><span class="comment">// &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>下面前端代码可以判断用户那个终端打开页面，实现跳转</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>((navigator.<span class="property">userAgent</span>.<span class="title function_">match</span>(<span class="regexp">/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i</span>))) &#123;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span> = <span class="string">&quot;&quot;</span>;     <span class="comment">//手机</span></span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span> = <span class="string">&quot;&quot;</span>;     <span class="comment">//电脑</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h4><p>​    window对象给我们提供了一个 history对象，与浏览器历史记录进行交互。<strong>该对象包含用户（在浏览器窗口中）访问过的URL</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>history对象方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>back()</td>
+<td>可以后退功能</td>
+</tr>
+<tr>
+<td>forward()</td>
+<td>前进功能</td>
+</tr>
+<tr>
+<td>go(参数)</td>
+<td>前进后退功能 参数如果是1前进1个页面 如果是-1 后退1个页面</td>
+</tr>
+</tbody></table>
+<h3 id="元素偏移量offset系列"><a href="#元素偏移量offset系列" class="headerlink" title="元素偏移量offset系列"></a>元素偏移量offset系列</h3><p>offset概述</p>
+<p>offset翻译过来就是偏移量,我们使用offset系列相关属性可以动态的得到该元素的位置(偏移)、大小等.</p>
+<ol>
+<li>获得元素距离  <strong>带有定位父元素</strong>  的位置.</li>
+<li>获得元素自身的大小(宽度高度)</li>
+<li>注意 : 返回的数值都不带单位</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>offset系列属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>element.offsetParent</td>
+<td>返回作为该元素带有定位的父级元素,如果父级都没有定位则返回body</td>
+</tr>
+<tr>
+<td>element.offsetTop</td>
+<td>返回距离元素最近的设置了定位的父级元素的上边距离</td>
+</tr>
+<tr>
+<td>element.offsetLeft</td>
+<td>返回距离元素最近的设置了定位的父级元素的左边距离</td>
+</tr>
+<tr>
+<td>element.offsetWidth</td>
+<td>返回元素的宽度,包括padding,border内容区的区域,不带单位</td>
+</tr>
+<tr>
+<td>element.offsetHeight</td>
+<td>返回元素的高度,包括padding,border内容区的区域,不带单位</td>
+</tr>
+<tr>
+<td>element.offsetX</td>
+<td>鼠标在元素里的X坐标</td>
+</tr>
+<tr>
+<td>element.offsetY</td>
+<td>鼠标在元素里的Y坐标</td>
+</tr>
+</tbody></table>
+<h3 id="offset-与-style-区别-1"><a href="#offset-与-style-区别-1" class="headerlink" title="offset 与 style 区别"></a>offset 与 style 区别</h3><h4 id="offset-1"><a href="#offset-1" class="headerlink" title="offset"></a>offset</h4><ul>
+<li><p>offset 可以得到任意样式表中的样式值</p>
+</li>
+<li><p>offset 系列获得的数值是没有单位的</p>
+</li>
+<li><p>offsetWidth 包含padding+border+width</p>
+</li>
+<li><p>offsetWidth 等属性是只读属性，只能获取不能赋值</p>
+</li>
+<li><blockquote>
+<p>所以，我们想要获取元素大小位置，用offset更合适</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="style-1"><a href="#style-1" class="headerlink" title="style"></a>style</h4><ul>
+<li><p>style 只能得到行内样式表中的样式值</p>
+</li>
+<li><p>style.width 获得的是带有单位的字符串</p>
+</li>
+<li><p>style.width 获得不包含padding和border 的值</p>
+</li>
+<li><p>style.width 是可读写属性，可以获取也可以赋值</p>
+</li>
+<li><blockquote>
+<p>所以，我们想要给元素更改值，则需要用style改变</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>因为平时我们都是给元素注册触摸事件，所以重点记住 targetTocuhes</strong></p>
+</blockquote>
+<h4 id="获取鼠标在盒子内的坐标-1"><a href="#获取鼠标在盒子内的坐标-1" class="headerlink" title="获取鼠标在盒子内的坐标"></a>获取鼠标在盒子内的坐标</h4><p>利用鼠标距离页面的距离(pageX&#x2F;Y)  和  盒子与页面的距离(box.offsetLeft&#x2F;Top)</p>
+<p>鼠标与页面的距离 -  盒子与页面的距离 &#x3D; 鼠标在盒子内的坐标</p>
+<p>通过事件监听盒子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.box&#x27;</span>);</span><br><span class="line">box.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mousemove&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line"><span class="keyword">var</span> x = e.<span class="property">pageX</span> - <span class="variable language_">this</span>.<span class="property">offsetLeft</span>;</span><br><span class="line"><span class="keyword">var</span> y = e.<span class="property">pageY</span> - <span class="variable language_">this</span>.<span class="property">offsetTop</span>;</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">innerHTML</span> = <span class="string">&#x27;x坐标是&#x27;</span> + x + <span class="string">&#x27; y坐标是&#x27;</span> + y;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="元素的可视区CLIENT系列"><a href="#元素的可视区CLIENT系列" class="headerlink" title="元素的可视区CLIENT系列"></a>元素的可视区CLIENT系列</h3><h4 id="client概述"><a href="#client概述" class="headerlink" title="client概述"></a>client概述</h4><p>client翻译过来是客户端 , 我们使用client系列的相关属性来获取元素可视区的相关信息.通过client系列的相关属性可以动态的得到该元素的管框大小,元素大小等…..</p>
+<table>
+<thead>
+<tr>
+<th>client系列属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>element.clientTop</td>
+<td>返回元素上边框的大小</td>
+</tr>
+<tr>
+<td>element.clientLeft</td>
+<td>返回元素左边框的大小</td>
+</tr>
+<tr>
+<td>element.clientWidth</td>
+<td>返回自身包括padding、内容区的宽度、不含边框、返回数值不带单位</td>
+</tr>
+<tr>
+<td>element.clientHeight</td>
+<td>返回自身包括padding、内容区的高度、不含边框、返回数值不带单位</td>
+</tr>
+</tbody></table>
+<h3 id="元素滚动SCROLL系列"><a href="#元素滚动SCROLL系列" class="headerlink" title="元素滚动SCROLL系列"></a>元素滚动SCROLL系列</h3><h4 id="scroll事件"><a href="#scroll事件" class="headerlink" title="scroll事件:"></a>scroll事件:</h4><p>window或者元素滚动时触发事件</p>
+<h4 id="scroll概述"><a href="#scroll概述" class="headerlink" title="scroll概述:"></a>scroll概述:</h4><p>scroll翻译过来就是滚动的意思 , 使用scroll系列相关属性可以动态的得到该元素的大小、滚动距离等…..</p>
+<table>
+<thead>
+<tr>
+<th>scroll系列属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>element.scrollTop</td>
+<td>返回被卷去的上侧距离,返回数值不带单位</td>
+</tr>
+<tr>
+<td>element.scrollLeft</td>
+<td>返回被卷去的左侧距离,返回数值不带单位</td>
+</tr>
+<tr>
+<td>element.scrollWidth</td>
+<td>返回自身<strong>内容</strong>的实际宽度,不含边框,返回数值不带单位</td>
+</tr>
+<tr>
+<td>element.scrollHeight</td>
+<td>返回自身<strong>内容</strong>的实际高度,不含边框,返回数值不带单位</td>
+</tr>
+</tbody></table>
+<h4 id="window下的pageXOffset和pageYOffset属性"><a href="#window下的pageXOffset和pageYOffset属性" class="headerlink" title="window下的pageXOffset和pageYOffset属性"></a>window下的pageXOffset和pageYOffset属性</h4><p>pageXOffset 文档(页面)被卷入的宽度</p>
+<p>pageYOffset 文档(页面)被卷入的高度</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">onscroll</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">				<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文档被卷入的宽度:&#x27;</span>,<span class="variable language_">window</span>.<span class="property">pageXOffset</span>,<span class="string">&#x27;px&#x27;</span>)</span><br><span class="line">				<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文档被卷入的高度:&#x27;</span>,<span class="variable language_">window</span>.<span class="property">pageYOffset</span>,<span class="string">&#x27;px&#x27;</span>)</span><br><span class="line">			&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h3><p>1、数据存储在用户浏览器中</p>
+<p>2、设置、读取方便甚至刷新不丢失数据</p>
+<p>3、容量较大 , sessionStorage约5M、localStorage约20M</p>
+<p>4、只能存储字符串 , 可以将对象JSON.stringify()编码后存储</p>
+<p>5、可以通过JSON.parse()转码后访问</p>
+<h4 id="window-sessionStorage窗口缓存数据"><a href="#window-sessionStorage窗口缓存数据" class="headerlink" title="window.sessionStorage窗口缓存数据"></a>window.sessionStorage窗口缓存数据</h4><p>1、生命周期为关闭浏览器窗口</p>
+<p>2、在同一个窗口(页面)下数据可以共享</p>
+<p>3、以键值对的形式存储使用</p>
+<p>存储数据 : </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.<span class="title function_">setItem</span>(key,value)</span><br></pre></td></tr></table></figure>
+
+<p>获取数据 :</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.<span class="title function_">getItem</span>(key)</span><br></pre></td></tr></table></figure>
+
+<p>删除数据 :</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.<span class="title function_">removeItem</span>(key)</span><br></pre></td></tr></table></figure>
+
+<p>清空数据 : (清空所有数据)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.<span class="title function_">clear</span>()</span><br></pre></td></tr></table></figure>
+
+<p>key 键名 ,  value 值</p>
+<h4 id="Window-localStorage电脑缓存"><a href="#Window-localStorage电脑缓存" class="headerlink" title="Window.localStorage电脑缓存"></a>Window.localStorage电脑缓存</h4><p>1、声明周期永久生效 , 除非手动删除 否则关闭页面也会村在</p>
+<p>2、可多窗口(页面)共享(统一浏览器可以共享)</p>
+<p>3、以键值对的形式存储使用</p>
+<p>存储数据 : </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(key,value)</span><br></pre></td></tr></table></figure>
+
+<p>获取数据 :</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(key)</span><br></pre></td></tr></table></figure>
+
+<p>删除数据 :</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">removeItem</span>(key)</span><br></pre></td></tr></table></figure>
+
+<p>清空数据 : (清空所有数据) </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">clear</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="JSON-stringify-obj"><a href="#JSON-stringify-obj" class="headerlink" title="JSON.stringify(obj)"></a><strong>JSON.stringify(obj)</strong></h4><p>将对象转化为<strong>字符串对象</strong></p>
+<h4 id="JSON-parse-obj"><a href="#JSON-parse-obj" class="headerlink" title="JSON.parse(obj)"></a><strong>JSON.parse(obj)</strong></h4><p>将字符串转成js对象</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#WebApi"><span class="toc-number">1.</span> <span class="toc-text">WebApi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM"><span class="toc-number">1.1.</span> <span class="toc-text">DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">查找元素的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E8%AF%8D%E8%A1%A8%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">生词表：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B61"><span class="toc-number">1.1.3.</span> <span class="toc-text">鼠标事件1:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E5%85%83%E7%B4%A0%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.4.</span> <span class="toc-text">更改元素内容:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="toc-number">1.1.5.</span> <span class="toc-text">元素操作：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E3%80%81%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">获取、元素属性:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#H5%E6%96%B0%E5%A2%9Edataset"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">H5新增dataset</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%85%83%E7%B4%A0-createElement"><span class="toc-number">1.1.5.3.</span> <span class="toc-text">创建元素:createElement</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%BD%E5%8A%A0%E5%85%83%E7%B4%A0-%E5%A2%9E%E6%B7%BB%E5%85%83%E7%B4%A0"><span class="toc-number">1.1.5.4.</span> <span class="toc-text">追加元素(增添元素):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E5%AD%90%E8%8A%82%E7%82%B9%E5%85%83%E7%B4%A0-%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E4%B8%8B%E6%89%80%E6%9C%89%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-number">1.1.5.5.</span> <span class="toc-text">查找元素子节点元素:(查找元素下所有的元素)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%88%B6%E4%BA%B2%E8%8A%82%E7%82%B9"><span class="toc-number">1.1.5.6.</span> <span class="toc-text">获取父亲节点:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%85%84%E5%BC%9F%E5%85%83%E7%B4%A0"><span class="toc-number">1.1.5.7.</span> <span class="toc-text">获取下一个兄弟元素:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%8A%E4%B8%80%E4%B8%AA%E5%85%84%E5%BC%9F%E5%85%83%E7%B4%A0"><span class="toc-number">1.1.5.8.</span> <span class="toc-text">获取上一个兄弟元素:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%AD%90%E5%85%83%E7%B4%A0"><span class="toc-number">1.1.5.9.</span> <span class="toc-text">删除子元素:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-number">1.1.5.10.</span> <span class="toc-text">删除元素:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E7%88%B6%E5%85%83%E7%B4%A0%E5%89%8D%E9%9D%A2%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9-%E6%88%96%E5%85%83%E7%B4%A0"><span class="toc-number">1.1.5.11.</span> <span class="toc-text">在父元素前面添加节点(或元素):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC-%E5%A4%9A%E4%BD%BF%E7%94%A8%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.1.5.12.</span> <span class="toc-text">事件监听(多使用事件)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.1.5.13.</span> <span class="toc-text">移除监听事件:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E7%9A%84%E5%BD%A2%E5%8F%82-event"><span class="toc-number">1.1.5.14.</span> <span class="toc-text">事件函数的形参:event</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.1.5.15.</span> <span class="toc-text">清除事件:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC"><span class="toc-number">1.1.5.16.</span> <span class="toc-text">清除事件监听:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%BB%E6%AD%A2%E6%A0%87%E7%AD%BE%EF%BC%88%E5%85%83%E7%B4%A0%EF%BC%89%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA%EF%BC%9A"><span class="toc-number">1.1.5.17.</span> <span class="toc-text">阻止标签（元素）默认行为：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM%E5%85%83%E7%B4%A0%E7%9A%84%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="toc-number">1.1.6.</span> <span class="toc-text">DOM元素的操作：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA"><span class="toc-number">1.1.6.1.</span> <span class="toc-text">1.创建 :</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%A2%9E%E5%8A%A0"><span class="toc-number">1.1.6.2.</span> <span class="toc-text">2.增加 :</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%A0%E9%99%A4"><span class="toc-number">1.1.6.3.</span> <span class="toc-text">3.删除 :</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9"><span class="toc-number">1.1.6.4.</span> <span class="toc-text">4.修改 :</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.1.6.5.</span> <span class="toc-text">5.查询 :</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%B1%9E%E6%80%A7%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.6.6.</span> <span class="toc-text">6.属性操作:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E9%AB%98%E7%BA%A7%EF%BC%9A"><span class="toc-number">1.1.6.7.</span> <span class="toc-text">事件高级：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%99%AE%E9%80%9A%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%EF%BC%9A"><span class="toc-number">1.1.6.8.</span> <span class="toc-text">1.普通事件绑定：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%EF%BC%9A"><span class="toc-number">1.1.6.9.</span> <span class="toc-text">2.事件监听：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%BB%E6%AD%A2%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%EF%BC%9A"><span class="toc-number">1.1.6.10.</span> <span class="toc-text">阻止事件冒泡：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%BB%E6%AD%A2a%E6%A0%87%E7%AD%BE%E7%9A%84%E8%B7%B3%E8%BD%AC%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-number">1.1.6.11.</span> <span class="toc-text">阻止a标签的跳转功能：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B62%EF%BC%9A"><span class="toc-number">1.1.7.</span> <span class="toc-text">鼠标事件2：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%81%E6%AD%A2%E9%BC%A0%E6%A0%87%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%EF%BC%9A"><span class="toc-number">1.1.7.1.</span> <span class="toc-text">禁止鼠标右键菜单：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%81%E6%AD%A2%E9%BC%A0%E6%A0%87%E9%80%89%E4%B8%AD%EF%BC%9A-%EF%BC%88selectstart%EF%BC%89"><span class="toc-number">1.1.7.2.</span> <span class="toc-text">禁止鼠标选中： （selectstart）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%EF%BC%9A"><span class="toc-number">1.1.8.</span> <span class="toc-text">键盘事件：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#keydown%E9%94%AE%E7%9B%98%E6%8C%89%E4%B8%8B%E4%BA%8B%E4%BB%B6%EF%BC%9A"><span class="toc-number">1.1.8.1.</span> <span class="toc-text">keydown键盘按下事件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Keypress%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6%EF%BC%9A"><span class="toc-number">1.1.8.2.</span> <span class="toc-text">Keypress键盘输入事件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#keyup%E9%94%AE%E7%9B%98%E5%BC%B9%E8%B5%B7%E4%BA%8B%E4%BB%B6%EF%BC%9A"><span class="toc-number">1.1.8.3.</span> <span class="toc-text">keyup键盘弹起事件：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ASCII%E8%A1%A8%EF%BC%9A"><span class="toc-number">1.1.9.</span> <span class="toc-text">ASCII表：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E6%AF%8D%E9%94%AEASCII%E8%A1%A8%EF%BC%9A"><span class="toc-number">1.1.9.0.1.</span> <span class="toc-text">字母键ASCII表：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E9%94%AE%E7%9B%98%E4%B8%8A%E7%9A%84%E9%94%AEASCII%E8%A1%A8%EF%BC%9A"><span class="toc-number">1.1.9.0.2.</span> <span class="toc-text">数字键盘上的键ASCII表：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E9%94%AEASCII%E8%A1%A8%EF%BC%9A"><span class="toc-number">1.1.9.0.3.</span> <span class="toc-text">功能键ASCII表：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%EF%BC%9A"><span class="toc-number">1.1.9.1.</span> <span class="toc-text">键盘事件执行顺序：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">1.1.9.2.</span> <span class="toc-text">键盘事件区别：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7key-%E9%94%AE%E7%9B%98%E9%94%AE%E5%90%8D-%EF%BC%9A"><span class="toc-number">1.1.9.3.</span> <span class="toc-text">属性key(键盘键名)：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7keyCode-%E9%94%AE%E7%9B%98%E6%8C%89%E4%B8%8B%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E7%9A%84ASCII%E7%A0%81-%EF%BC%9A"><span class="toc-number">1.1.9.4.</span> <span class="toc-text">属性keyCode(键盘按下输出对应的ASCII码)：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E7%9A%84offset%E5%B1%9E%E6%80%A7-offset%E7%B3%BB%E5%88%97"><span class="toc-number">1.1.10.</span> <span class="toc-text">元素的offset属性(offset系列)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#offset-%E4%B8%8E-style-%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.11.</span> <span class="toc-text">offset 与 style 区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#offset"><span class="toc-number">1.1.11.1.</span> <span class="toc-text">offset</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#style"><span class="toc-number">1.1.11.2.</span> <span class="toc-text">style</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.12.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%BC%A0%E6%A0%87%E5%9C%A8%E7%9B%92%E5%AD%90%E5%86%85%E7%9A%84%E5%9D%90%E6%A0%87"><span class="toc-number">1.1.12.1.</span> <span class="toc-text">获取鼠标在盒子内的坐标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E6%A1%86%E7%9A%84change%E4%BA%8B%E4%BB%B6-%E5%8F%91%E7%94%9F%E6%94%B9%E5%8F%98%E8%A7%A6%E5%8F%91%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.1.12.2.</span> <span class="toc-text">下拉框的change事件 (发生改变触发事件)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E6%A1%86%E7%9A%84selectIndex%E5%B1%9E%E6%80%A7-%E5%8F%AF%E8%AF%BB%E5%8F%AF%E5%86%99"><span class="toc-number">1.1.12.3.</span> <span class="toc-text">下拉框的selectIndex属性(可读可写)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM"><span class="toc-number">1.2.</span> <span class="toc-text">BOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window%E4%BA%8B%E4%BB%B6%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">window事件：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%EF%BC%88%E7%AA%97%E5%8F%A3%EF%BC%89%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B61%EF%BC%9A%EF%BC%88load%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">页面（窗口）加载事件1：（load事件）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%EF%BC%88%E7%AA%97%E5%8F%A3%EF%BC%89%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B62%EF%BC%9A%EF%BC%88DOMContentLoaded%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">页面（窗口）加载事件2：（DOMContentLoaded事件）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F%E4%BA%8B%E4%BB%B6-window-onresize-%EF%BC%9A"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">调整窗口大小事件(window.onresize)：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#window-innerWidth-%E2%80%94%E2%80%94-%E5%BD%93%E5%89%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AA%97%E5%8F%A3%E5%AE%BD%E5%BA%A6"><span class="toc-number">1.2.1.3.1.</span> <span class="toc-text">window.innerWidth  ——  当前浏览器窗口宽度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%EF%BC%9A%EF%BC%88%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">定时器：（回调函数）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">回调函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E5%99%A8setInterval%EF%BC%9A%EF%BC%88window-setInterval%EF%BC%89"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">设置定时器setInterval：（window.setInterval）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%80%92%E8%AE%A1%E6%97%B6%E5%AE%9A%E6%97%B6%E5%99%A8setTimeout%EF%BC%9A%EF%BC%88window-setTimeout%EF%BC%89"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">设置倒计时定时器setTimeout：（window.setTimeout）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E5%AE%9A%E6%97%B6%E5%99%A8clearInterval%EF%BC%9A%EF%BC%88window-clearInterval%EF%BC%89"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">清除定时器clearInterval：（window.clearInterval）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%EF%BC%9A"><span class="toc-number">1.2.3.</span> <span class="toc-text">同步和异步：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window%E4%B8%8B%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.4.</span> <span class="toc-text">window下的对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#location%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">location对象的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#location%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">location对象的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#navigator%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">navigator对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#history%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.4.4.</span> <span class="toc-text">history对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E5%81%8F%E7%A7%BB%E9%87%8Foffset%E7%B3%BB%E5%88%97"><span class="toc-number">1.2.5.</span> <span class="toc-text">元素偏移量offset系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#offset-%E4%B8%8E-style-%E5%8C%BA%E5%88%AB-1"><span class="toc-number">1.2.6.</span> <span class="toc-text">offset 与 style 区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#offset-1"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">offset</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#style-1"><span class="toc-number">1.2.6.2.</span> <span class="toc-text">style</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%BC%A0%E6%A0%87%E5%9C%A8%E7%9B%92%E5%AD%90%E5%86%85%E7%9A%84%E5%9D%90%E6%A0%87-1"><span class="toc-number">1.2.6.3.</span> <span class="toc-text">获取鼠标在盒子内的坐标</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%BACLIENT%E7%B3%BB%E5%88%97"><span class="toc-number">1.2.7.</span> <span class="toc-text">元素的可视区CLIENT系列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#client%E6%A6%82%E8%BF%B0"><span class="toc-number">1.2.7.1.</span> <span class="toc-text">client概述</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E6%BB%9A%E5%8A%A8SCROLL%E7%B3%BB%E5%88%97"><span class="toc-number">1.2.8.</span> <span class="toc-text">元素滚动SCROLL系列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#scroll%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.8.1.</span> <span class="toc-text">scroll事件:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scroll%E6%A6%82%E8%BF%B0"><span class="toc-number">1.2.8.2.</span> <span class="toc-text">scroll概述:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#window%E4%B8%8B%E7%9A%84pageXOffset%E5%92%8CpageYOffset%E5%B1%9E%E6%80%A7"><span class="toc-number">1.2.8.3.</span> <span class="toc-text">window下的pageXOffset和pageYOffset属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="toc-number">1.2.9.</span> <span class="toc-text">本地存储</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#window-sessionStorage%E7%AA%97%E5%8F%A3%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.9.1.</span> <span class="toc-text">window.sessionStorage窗口缓存数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Window-localStorage%E7%94%B5%E8%84%91%E7%BC%93%E5%AD%98"><span class="toc-number">1.2.9.2.</span> <span class="toc-text">Window.localStorage电脑缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSON-stringify-obj"><span class="toc-number">1.2.9.3.</span> <span class="toc-text">JSON.stringify(obj)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSON-parse-obj"><span class="toc-number">1.2.9.4.</span> <span class="toc-text">JSON.parse(obj)</span></a></li></ol></li></ol></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
