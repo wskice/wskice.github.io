@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - Wskice</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="wskice的技术分享,Docker笔记介绍Docker官网：http://www.docker.com
+Github Docker源码：https://github.com/docker/docker
+Docker 是一,"> 
+    <meta name="author" content="wskice"> 
+    <link rel="alternative" href="atom.xml" title="Wskice" type="application/atom+xml"> 
+    <link rel="icon" href="../../../../img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content=" - Wskice"/>
+    <meta name="twitter:description" content="wskice的技术分享,Docker笔记介绍Docker官网：http://www.docker.com
+Github Docker源码：https://github.com/docker/docker
+Docker 是一,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Wskice"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content=" - Wskice"/>
+    <meta property="og:description" content="wskice的技术分享,Docker笔记介绍Docker官网：http://www.docker.com
+Github Docker源码：https://github.com/docker/docker
+Docker 是一,"/>
+    
+<link rel="stylesheet" href="../css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Wskice</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>一月 06, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="Docker笔记"><a href="#Docker笔记" class="headerlink" title="Docker笔记"></a>Docker笔记</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Docker官网：<a target="_blank" rel="noopener" href="http://www.docker.com/">http://www.docker.com</a></p>
+<p>Github Docker源码：<a target="_blank" rel="noopener" href="https://github.com/docker/docker">https://github.com/docker/docker</a></p>
+<p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化，容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+<p>Docker 包括三个基本概念</p>
+<ul>
+<li>镜像（Image）</li>
+<li>容器（Container）</li>
+<li>仓库（Repository）</li>
+</ul>
+<p>理解了这三个概念，就理解了 Docker 的整个生命周期</p>
+<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p>Docker使用 C&#x2F;S 体系的架构，Docker客户端与Docker守护进程通信，Docker 守护进程负责构建，运行和分发 Docker容器。Docker客户端和守护进程可以在同一个系统上运行，也可以将 Docker客户端连接到远程Docker守护进程。Docker客户端和守护进程使用 REST API 通过UNIX套接字或网络接口进行通信。</p>
+<p><img src="imgs/Docker%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="img"></p>
+<h3 id="为什么要使用-Docker？"><a href="#为什么要使用-Docker？" class="headerlink" title="为什么要使用 Docker？"></a>为什么要使用 Docker？</h3><p>作为一种新兴的虚拟化方式，Docker 跟传统的虚拟化方式相比具有众多的优势。</p>
+<h4 id="更高效的利用系统资源"><a href="#更高效的利用系统资源" class="headerlink" title="更高效的利用系统资源"></a>更高效的利用系统资源</h4><p>由于容器不需要进行硬件虚拟以及运行完整操作系统等额外开销，Docker 对系统资源的利用率更高。无论是应用执行速度、内存损耗或者文件存储速度，都要比传统虚拟机技术更高效。因此，相比虚拟机技术，一个相同配置的主机，往往可以运行更多数量的应用。</p>
+<h4 id="更快速的启动时间"><a href="#更快速的启动时间" class="headerlink" title="更快速的启动时间"></a>更快速的启动时间</h4><p>传统的虚拟机技术启动应用服务往往需要数分钟，而 Docker 容器应用，由于直接运行于宿主内核，无需启动完整的操作系统，因此可以做到秒级、甚至毫秒级的启动时间。大大的节约了开发、测试、部署的时间。</p>
+<h4 id="一致的运行环境"><a href="#一致的运行环境" class="headerlink" title="一致的运行环境"></a>一致的运行环境</h4><p>开发过程中一个常见的问题是环境一致性问题。由于开发环境、测试环境、生产环境不一致，导致有些 bug 并未在开发过程中被发现。而 Docker 的镜像提供了除内核外完整的运行时环境，确保了应用运行环境一致性，从而不会再出现<em>「这段代码在我机器上没问题啊」</em>这类问题。</p>
+<h4 id="持续交付和部署"><a href="#持续交付和部署" class="headerlink" title="持续交付和部署"></a>持续交付和部署</h4><p>对开发和运维（DevOps）人员来说，最希望的就是一次创建或配置，可以在任意地方正常运行。</p>
+<p>使用 Docker 可以通过定制应用镜像来实现持续集成、持续交付、部署。开发人员可以通过Dockerfile持续集成(Continuous Integration)来进行镜像构建，并结合持续部署(Continuous Delivery&#x2F;Deployment)系统进行集成测试，而运维人员则可以直接在生产环境中快速部署该镜像，甚至结合系统进行自动部署。</p>
+<p>而且使用<code>Dockerfile</code>使镜像构建透明化，不仅仅开发团队可以理解应用运行环境，也方便运维团队理解应用运行所需条件，帮助更好的生产环境中部署该镜像。</p>
+<h4 id="更轻松的迁移"><a href="#更轻松的迁移" class="headerlink" title="更轻松的迁移"></a>更轻松的迁移</h4><p>由于 Docker 确保了执行环境的一致性，使得应用的迁移更加容易。Docker 可以在很多平台上运行，无论是物理机、虚拟机、公有云、私有云，甚至是笔记本，其运行结果是一致的。因此用户可以很轻易的将在一个平台上运行的应用，迁移到另一个平台上，而不用担心运行环境的变化导致应用无法正常运行的情况。</p>
+<h4 id="更轻松的维护和扩展"><a href="#更轻松的维护和扩展" class="headerlink" title="更轻松的维护和扩展"></a>更轻松的维护和扩展</h4><p>Docker 使用的分层存储以及镜像的技术，使得应用重复部分的复用更为容易，也使得应用的维护更新更加简单，基于基础镜像进一步扩展镜像也变得非常简单。此外，Docker 团队同各个开源项目团队一起维护了一大批高质量的<a target="_blank" rel="noopener" href="https://hub.docker.com/search/?type=image&image_filter=official">官方镜像</a>，既可以直接在生产环境使用，又可以作为基础进一步定制，大大的降低了应用服务的镜像制作成本。</p>
+<h4 id="对比传统虚拟机总结"><a href="#对比传统虚拟机总结" class="headerlink" title="对比传统虚拟机总结"></a>对比传统虚拟机总结</h4><table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left">容器</th>
+<th align="left">虚拟机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">启动</td>
+<td align="left">秒级</td>
+<td align="left">分钟级</td>
+</tr>
+<tr>
+<td align="left">硬盘使用</td>
+<td align="left">一般为<code>MB</code></td>
+<td align="left">一般为<code>GB</code></td>
+</tr>
+<tr>
+<td align="left">性能</td>
+<td align="left">接近原生</td>
+<td align="left">弱于</td>
+</tr>
+<tr>
+<td align="left">系统支持量</td>
+<td align="left">单机支持上千个容器</td>
+<td align="left">一般几十个</td>
+</tr>
+</tbody></table>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>以下以ubuntu举例安装：</p>
+<h3 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h3><p>(如果没安装过的可以跳过第一步)</p>
+<ol>
+<li><p>卸载旧版本Docker</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新<code>apt</code>软件包索引并安装软件包，允许<code>apt</code>通过HTTPS使用存储库:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install \</span><br><span class="line">  ca-certificates \</span><br><span class="line">  curl \</span><br><span class="line">  gnupg \</span><br><span class="line">  lsb-release</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加Docker的官方GPG密钥:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加稳定的更新下载库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">  <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="正式安装"><a href="#正式安装" class="headerlink" title="正式安装"></a>正式安装</h3><p>终端输入</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+
+<p>运行<code>hello-world</code>来验证Docker引擎是否正确安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>升级：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>tips:</strong></p>
+<p>可以使用<code>sudo -s -H</code>活动超级权限，之后就执行Docker命令就不用加sudo啦</p>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><ol>
+<li><p>卸载Docker引擎、CLI和容器包:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除相关内容，images(镜像)、containers(容器)、volumes(卷):</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -rf /var/lib/docker</span><br><span class="line">sudo <span class="built_in">rm</span> -rf /var/lib/containerd</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h2><h3 id="docker加速器"><a href="#docker加速器" class="headerlink" title="docker加速器"></a>docker加速器</h3><p>因为国内从 Docker Hub 拉取镜像有时会遇到困难，此时可以配置镜像加速器。Docker 官方和国内很多云服务商都提供了国内加速器服务，例如：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/registry/recipes/mirror/#use-case-the-china-registry-mirror">Docker 官方提供的中国 registry mirror<code>https://registry.docker-cn.com</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/mirrors">阿里云加速器(需登录账号获取)</a></li>
+<li><a target="_blank" rel="noopener" href="https://kirk-enterprise.github.io/hub-docs/#/user-guide/mirror">七牛云加速器<code>https://reg-mirror.qiniu.com/</code></a></li>
+</ul>
+<p>我们以 Docker 官方加速器<code>https://registry.docker-cn.com</code>为例进行介绍。</p>
+<p>请在<code>/etc/docker/daemon.json</code>中写入如下内容（如果文件不存在请新建该文件）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://registry.docker-cn.com&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>注意⚠️：一定要保证该文件符合json规范，否则Docker将不能启动。</em></p>
+<p>添加好之后重新启动服务：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl daemon-reload</span><br><span class="line">$ sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h4 id="检查加速器是否生效"><a href="#检查加速器是否生效" class="headerlink" title="检查加速器是否生效"></a>检查加速器是否生效</h4><p>命令执行docker info，如果从结果中看到了如下内容，说明配置成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Registry Mirrors:</span><br><span class="line"> https://registry.docker-cn.com/</span><br></pre></td></tr></table></figure>
+
+<p><img src="imgs/%E5%8A%A0%E9%80%9F%E5%99%A8%E6%A3%80%E6%9F%A5.png" alt="img"></p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="镜像-Image"><a href="#镜像-Image" class="headerlink" title="镜像(Image)"></a>镜像(Image)</h3><p>Docker 镜像是一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（如匿名卷、环境变量、用户等）。镜像不包含任何动态数据，其内容在构建之后也不会被改变。</p>
+<p>镜像一个只读的文件，类似于我们安装操作系统时候所需要的那个iso光盘镜像，通过运行这个镜像来完成各种应用的部署。 这里的镜像就是一个能被docker运行起来的一个程序，里面封装了所需的运行环境。</p>
+<h4 id="镜像指令"><a href="#镜像指令" class="headerlink" title="镜像指令"></a>镜像指令</h4><p>从网上搜索镜像</p>
+<h5 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h5><p>命令格式：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#               镜像名称</span></span><br><span class="line">docker search [image_name]</span><br></pre></td></tr></table></figure>
+
+<p>命令演示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search ubuntu</span><br></pre></td></tr></table></figure>
+
+<h5 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h5><p><a target="_blank" rel="noopener" href="https://hub.docker.com/search/?q=&type=image">docker hub</a></p>
+<p>命令格式：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [image_name]</span><br></pre></td></tr></table></figure>
+
+<p>命令演示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull ubuntu</span><br><span class="line">docker pull nginx</span><br></pre></td></tr></table></figure>
+
+<p>获取的镜像所在位置: &#x2F;var&#x2F;lib&#x2F;docker&#x2F;</p>
+<h5 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h5><p>命令格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>命令演示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images ubuntu</span><br></pre></td></tr></table></figure>
+
+<p><img src="imgs/dockerimages.png" alt="img"></p>
+<p>镜像的ID唯一标识了镜像，如果ID相同,说明是同一镜像。TAG信息来区分不同发行版本，如果不指定具体标记,默认使用latest标记信息</p>
+<h5 id="列出所有的本地镜像"><a href="#列出所有的本地镜像" class="headerlink" title="列出所有的本地镜像"></a>列出所有的本地镜像</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">docker images -a</span><br></pre></td></tr></table></figure>
+
+<p><img src="imgs/dockerimagesa.png" alt="img"></p>
+<h5 id="镜像重命名并拷贝"><a href="#镜像重命名并拷贝" class="headerlink" title="镜像重命名并拷贝"></a>镜像重命名并拷贝</h5><p>因为每创建了的镜像都会留一个(tag)发行版，所以重命名的时候是拷贝一个新的并新命名一个(tag)发行版</p>
+<p><strong>提示：tag ≈ 标签 ≈ 版本号 ≈ 发行版</strong></p>
+<p>命令格式：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#         要拷贝的镜像名:版本号             新镜像名:版本号</span></span><br><span class="line">docker tag [old_image]:[old_version] [new_image]:[new_version]</span><br></pre></td></tr></table></figure>
+
+<p>命令演示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag nginx:latest nginx:v1.0</span><br></pre></td></tr></table></figure>
+
+<p><img src="imgs/dockertag.png" alt="img"></p>
+<h5 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h5><p>命令格式：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#            镜像id 或 镜像名    :  镜像版本号</span></span><br><span class="line">docker rmi [image_id/image_name:image_version]</span><br></pre></td></tr></table></figure>
+
+<p>命令演示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi ubuntu</span><br></pre></td></tr></table></figure>
+
+<p><em>注意⚠️：如果一个image_id存在多个名称，那么应该使用name:tag的格式删除镜像</em></p>
+<p><img src="imgs/dockerrmitag.png" alt="img"></p>
+<h5 id="导出镜像"><a href="#导出镜像" class="headerlink" title="导出镜像"></a>导出镜像</h5><p>将已经下载好的镜像，导出到本地，以备后用。</p>
+<p>命令格式：</p>
+<p><code>docker save -o [包文件] [镜像]</code></p>
+<p><code>docker save [镜像1] ... [镜像n] &gt; [包文件]</code></p>
+<p><em>注意⚠️：docker save 会保存镜像的所有历史记录和元数据信息</em></p>
+<p>导出镜像</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o ubuntu.tar ubuntu</span><br></pre></td></tr></table></figure>
+
+<p><img src="imgs/dockersaveo.png" alt="img"></p>
+<h5 id="导入镜像"><a href="#导入镜像" class="headerlink" title="导入镜像"></a>导入镜像</h5><p>为了更好的演示效果，我们先将njinx的镜像删除掉</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi ubuntu</span><br></pre></td></tr></table></figure>
+
+<p>导入镜像命令格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker load &lt; [image.tar_name]</span><br><span class="line">docker load -i [image.tar_name]</span><br></pre></td></tr></table></figure>
+
+<p>注意:</p>
+<p>docker load 不能指定镜像的名称</p>
+<p>导入镜像文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load &lt; ubuntu.tar</span><br></pre></td></tr></table></figure>
+
+<p><img src="imgs/dockerloadleft.png" alt="img"></p>
+<h5 id="查看镜像历史"><a href="#查看镜像历史" class="headerlink" title="查看镜像历史"></a>查看镜像历史</h5><p>查看镜像历史命令格式：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">history</span> [image_name]</span><br></pre></td></tr></table></figure>
+
+<p>我们获取到一个镜像，想知道他默认启动了哪些命令或者都封装了哪些系统层，那么我们可以使用docker history这条命令来获取我们想要的信息</p>
+<p><img src="imgs/dockerhistory.png" alt="img"></p>
+<h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><p>镜像（<code>Image</code>）和容器（<code>Container</code>）的关系，就像是面向对象程序设计中的<code>类</code>和<code>实例</code>一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</p>
+<p>容器的实质是进程，但与直接在宿主执行的进程不同，容器进程运行于属于自己的独立的命名空间。</p>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><h5 id="查看容器"><a href="#查看容器" class="headerlink" title="查看容器"></a>查看容器</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<p><img src="imgs/dockerps.png" alt="img"></p>
+<h5 id="查看所有容器"><a href="#查看所有容器" class="headerlink" title="查看所有容器"></a>查看所有容器</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+
+
+
+<p><em>注意⚠️：管理docker容器可以通过名称，也可也通过id</em></p>
+<h5 id="启动容器-创建容器"><a href="#启动容器-创建容器" class="headerlink" title="启动容器(创建容器)"></a>启动容器(创建容器)</h5><p>守护进程方式启动容器(创建容器)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run [参数] docker_image [执行的命令]</span><br></pre></td></tr></table></figure>
+
+<p>让Docker容器在<strong>后台守护形式</strong>运行,可以通过添加-d参数来实现(<strong><u>务必使用此方案</u></strong>)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d nginx</span><br></pre></td></tr></table></figure>
+
+<p><img src="imgs/dockerrund.png" alt="img"></p>
+<p><code>-t</code>选项让Docker分配一个伪终端并绑定到容器的标准输入上，<code>-i</code>则让容器的标准输入保持打开</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -i -t nginx /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p><img src="imgs/dockerrunit.png" alt="img"></p>
+<p>–name选项来给容器设置个名字</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name myubuntu -dit ubuntu</span><br></pre></td></tr></table></figure>
+
+<h5 id="启动已终止的容器"><a href="#启动已终止的容器" class="headerlink" title="启动已终止的容器"></a>启动已终止的容器</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start [container_id]</span><br></pre></td></tr></table></figure>
+
+<h5 id="关闭容器"><a href="#关闭容器" class="headerlink" title="关闭容器"></a>关闭容器</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop [container_id]</span><br></pre></td></tr></table></figure>
+
+<p><img src="imgs/containerstopstart.png" alt="img"></p>
+<h5 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h5><p>删除容器有两种方法</p>
+<p>正常删除 – 删除已关闭的</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> [container_id]</span><br></pre></td></tr></table></figure>
+
+<p>强制删除 – 删除正在运行的</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> -f [container_id]</span><br></pre></td></tr></table></figure>
+
+<p>拓展批量关闭容器(删除所有容器)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> -f $(docker ps -a -q)</span><br></pre></td></tr></table></figure>
+
+<p>进入正在运行的容器</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> [选项参数] 容器<span class="built_in">id</span>/容器名 命令</span><br></pre></td></tr></table></figure>
+
+<p>只用<code>-i</code>参数时，由于没有分配伪终端，界面没有我们熟悉的Linux命令提示符，但命令执行结果仍然可以返回。</p>
+<p>当<code>-i-t</code>参数一起使用时，则可以看到我们熟悉的Linux命令提示符。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it myubuntu /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p><img src="imgs/exec.png" alt="img"></p>
+<p>提示:使用-d启动的容器，exit退出容器后，不会导致容器的停止。</p>
+<h5 id="基于容器创建镜像-逆向工程"><a href="#基于容器创建镜像-逆向工程" class="headerlink" title="基于容器创建镜像(逆向工程)"></a>基于容器创建镜像(逆向工程)</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#       提交                              容器id       新镜像名称:版本号</span></span><br><span class="line">docker commit -m <span class="string">&#x27;改动信息&#x27;</span> -a <span class="string">&#x27;作者信息&#x27;</span> contatiner_id new_image:tag</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看镜像-1"><a href="#查看镜像-1" class="headerlink" title="查看镜像"></a>查看镜像</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>REPOSITORY</th>
+<th>TAG</th>
+<th>IMAGE ID</th>
+<th>CREATED</th>
+<th>SIZE</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(名称)</td>
+<td>(标签)</td>
+<td>(镜像id)</td>
+<td>(创建时间)</td>
+<td>(大小)</td>
+</tr>
+</tbody></table>
+<h5 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it [镜像名]</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看容器详细信息"><a href="#查看容器详细信息" class="headerlink" title="查看容器详细信息"></a>查看容器详细信息</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect [容器<span class="built_in">id</span>]</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看容器运行日志"><a href="#查看容器运行日志" class="headerlink" title="查看容器运行日志"></a>查看容器运行日志</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs [容器<span class="built_in">id</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Docker笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">1.1.1.</span> <span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8-Docker%EF%BC%9F"><span class="toc-number">1.1.2.</span> <span class="toc-text">为什么要使用 Docker？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%88%A9%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">更高效的利用系统资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E5%BF%AB%E9%80%9F%E7%9A%84%E5%90%AF%E5%8A%A8%E6%97%B6%E9%97%B4"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">更快速的启动时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">一致的运行环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E9%83%A8%E7%BD%B2"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">持续交付和部署</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E8%BD%BB%E6%9D%BE%E7%9A%84%E8%BF%81%E7%A7%BB"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">更轻松的迁移</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E8%BD%BB%E6%9D%BE%E7%9A%84%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%89%A9%E5%B1%95"><span class="toc-number">1.1.2.6.</span> <span class="toc-text">更轻松的维护和扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94%E4%BC%A0%E7%BB%9F%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.2.7.</span> <span class="toc-text">对比传统虚拟机总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.2.1.</span> <span class="toc-text">前置工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.2.</span> <span class="toc-text">正式安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD"><span class="toc-number">1.2.3.</span> <span class="toc-text">卸载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">简单配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker%E5%8A%A0%E9%80%9F%E5%99%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">docker加速器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E5%8A%A0%E9%80%9F%E5%99%A8%E6%98%AF%E5%90%A6%E7%94%9F%E6%95%88"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">检查加速器是否生效</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.4.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%9C%E5%83%8F-Image"><span class="toc-number">1.4.1.</span> <span class="toc-text">镜像(Image)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">镜像指令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-number">1.4.1.1.1.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96"><span class="toc-number">1.4.1.1.2.</span> <span class="toc-text">获取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F"><span class="toc-number">1.4.1.1.3.</span> <span class="toc-text">查看镜像</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89%E7%9A%84%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F"><span class="toc-number">1.4.1.1.4.</span> <span class="toc-text">列出所有的本地镜像</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E9%87%8D%E5%91%BD%E5%90%8D%E5%B9%B6%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.4.1.1.5.</span> <span class="toc-text">镜像重命名并拷贝</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%95%9C%E5%83%8F"><span class="toc-number">1.4.1.1.6.</span> <span class="toc-text">删除镜像</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA%E9%95%9C%E5%83%8F"><span class="toc-number">1.4.1.1.7.</span> <span class="toc-text">导出镜像</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E9%95%9C%E5%83%8F"><span class="toc-number">1.4.1.1.8.</span> <span class="toc-text">导入镜像</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F%E5%8E%86%E5%8F%B2"><span class="toc-number">1.4.1.1.9.</span> <span class="toc-text">查看镜像历史</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="toc-number">1.4.2.</span> <span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">指令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8"><span class="toc-number">1.4.2.1.1.</span> <span class="toc-text">查看容器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%AE%B9%E5%99%A8"><span class="toc-number">1.4.2.1.2.</span> <span class="toc-text">查看所有容器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8-%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8"><span class="toc-number">1.4.2.1.3.</span> <span class="toc-text">启动容器(创建容器)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%B7%B2%E7%BB%88%E6%AD%A2%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">1.4.2.1.4.</span> <span class="toc-text">启动已终止的容器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E5%AE%B9%E5%99%A8"><span class="toc-number">1.4.2.1.5.</span> <span class="toc-text">关闭容器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8"><span class="toc-number">1.4.2.1.6.</span> <span class="toc-text">删除容器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%AE%B9%E5%99%A8%E5%88%9B%E5%BB%BA%E9%95%9C%E5%83%8F-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B"><span class="toc-number">1.4.2.1.7.</span> <span class="toc-text">基于容器创建镜像(逆向工程)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F-1"><span class="toc-number">1.4.2.1.8.</span> <span class="toc-text">查看镜像</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="toc-number">1.4.2.1.9.</span> <span class="toc-text">启动容器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF"><span class="toc-number">1.4.2.1.10.</span> <span class="toc-text">查看容器详细信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E6%97%A5%E5%BF%97"><span class="toc-number">1.4.2.1.11.</span> <span class="toc-text">查看容器运行日志</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="../js/plugin.js"></script>
+<script src="../js/typed.js"></script>
+<script src="../js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="../photoswipe/photoswipe.css">
+<link rel="stylesheet" href="../photoswipe/default-skin/default-skin.css">
+
+
+<script src="../photoswipe/photoswipe.min.js"></script>
+<script src="../photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

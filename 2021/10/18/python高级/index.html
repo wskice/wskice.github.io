@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - Wskice</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="wskice的技术分享,python高级迭代器1.什么是“迭代”迭代是访问集合元素的一种方式
+可以逐一访问集合元素的一种方式
+迭代器记录每一次访问集合元素的位置
+官方解释：
+迭代器（Iterator）有时又称游标（curs,"> 
+    <meta name="author" content="wskice"> 
+    <link rel="alternative" href="atom.xml" title="Wskice" type="application/atom+xml"> 
+    <link rel="icon" href="../../../../img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content=" - Wskice"/>
+    <meta name="twitter:description" content="wskice的技术分享,python高级迭代器1.什么是“迭代”迭代是访问集合元素的一种方式
+可以逐一访问集合元素的一种方式
+迭代器记录每一次访问集合元素的位置
+官方解释：
+迭代器（Iterator）有时又称游标（curs,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Wskice"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content=" - Wskice"/>
+    <meta property="og:description" content="wskice的技术分享,python高级迭代器1.什么是“迭代”迭代是访问集合元素的一种方式
+可以逐一访问集合元素的一种方式
+迭代器记录每一次访问集合元素的位置
+官方解释：
+迭代器（Iterator）有时又称游标（curs,"/>
+    
+<link rel="stylesheet" href="../css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Wskice</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>十月 18, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="python高级"><a href="#python高级" class="headerlink" title="python高级"></a>python高级</h1><h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><h3 id="1-什么是“迭代”"><a href="#1-什么是“迭代”" class="headerlink" title="1.什么是“迭代”"></a>1.什么是“迭代”</h3><p>迭代是访问集合元素的一种方式</p>
+<p>可以逐一访问集合元素的一种方式</p>
+<h3 id="迭代器-1"><a href="#迭代器-1" class="headerlink" title="迭代器"></a>迭代器</h3><p>记录每一次访问集合元素的位置</p>
+<p>官方解释：</p>
+<p>迭代器（Iterator）有时又称游标（cursor）是一个可以记住遍历的位置的对象。迭代器对象从集合的第一个元素开始访问，直到所有的元素被访问完结束。<strong>迭代器只能往前不会后退</strong>。</p>
+<p>使用方式：通过iter函数获取可迭代对象的迭代器，对迭代器使用next方法访问集合元素里的元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">arr_iter = <span class="built_in">iter</span>(arr)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(arr_iter)) <span class="comment"># 1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(arr_iter)) <span class="comment"># 2</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(arr_iter)) <span class="comment"># 3</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(arr_iter)) <span class="comment"># 4</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(arr_iter)) <span class="comment"># 报错</span></span><br></pre></td></tr></table></figure>
+
+<p>可以迭代的数据类型：</p>
+<p>列表，字典，元组，字符串</p>
+<p>不可迭代数据类型：</p>
+<p>数字</p>
+<h3 id="StopIteration异常"><a href="#StopIteration异常" class="headerlink" title="StopIteration异常"></a><code>StopIteration</code>异常</h3><p>此异常在使用next方法访问超过集合对象下标的元素时的报错，其实是一种迭代结束的标志</p>
+<h3 id="自定义“可迭代对象”"><a href="#自定义“可迭代对象”" class="headerlink" title="自定义“可迭代对象”"></a>自定义“可迭代对象”</h3><p>在定义对象时可以自定义对象是否能迭代</p>
+<p>方法：在创建对象的类中，通过<code>__iter__</code>方法设置迭代器</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyList</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="comment">#...省略代码</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line">    <span class="comment">#...省略代码</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="如果查看对象是否可以迭代"><a href="#如果查看对象是否可以迭代" class="headerlink" title="如果查看对象是否可以迭代"></a>如果查看对象是否可以迭代</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isinstance</span>(检测对象,Iterable)</span><br><span class="line"><span class="comment"># 返回值为布尔值</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>内部原因：其实，使用iter()获取可迭代对象的 迭代器 时，会自动调用这个对象上的<code>__iter__</code>方法，并且这个方法返回迭代器。</p>
+<h2 id="生成器：特殊的迭代器"><a href="#生成器：特殊的迭代器" class="headerlink" title="生成器：特殊的迭代器"></a>生成器：特殊的迭代器</h2><p>在python中，这种一边循环一遍计算的机制，称为生成器：generator。</p>
+<h3 id="什么是生成器："><a href="#什么是生成器：" class="headerlink" title="什么是生成器："></a>什么是生成器：</h3><p>通过列表生成式，可以直接创建一个列表。但受内存限制，列表容量肯定是有限的。数量庞大的列表会占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白蓝菲类。所以，如果列表元素可以按照某种算法推算出来，那我们就可以在循的过程中不断推算出后续的元素了，这样就不必创建完整的list(列表)，从而节省大量的时间和内存。</p>
+<p>在python中，这种一边循环一遍计算的机制，称为生成器：generator。</p>
+<p>大白话：通过算法优化列表，使列表只在读取的时候进行生成并访问，从而节省存储空间。(当然算法是啥的就不用深究了，python自带的一些奇奇怪怪的方式吧)</p>
+<h3 id="创建生成器方式1"><a href="#创建生成器方式1" class="headerlink" title="创建生成器方式1:"></a>创建生成器方式1:</h3><p>只需要吧一个列表生成式的[]改成()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">l = [ x*<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>)]</span><br><span class="line"><span class="built_in">print</span>(l) <span class="comment"># [0,2,4,6,8]</span></span><br><span class="line"></span><br><span class="line">g = ( x*<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>) )</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(g) <span class="comment">#&lt;generator object &lt;genexpr&gt; at 内存地址&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>创建 L 和 G 的区别仅在于最外层的 [ ] 和 ( ) ， L 是一个列表，而 G 是一个生成器。我们可以直接打印出列表L的每一个元素，而对于生成器G，我们可以按照迭代器的使用方法来使用，即可以通过next()函数、for循环、list()等方法使用。</p>
+<h3 id="创建生成器方式2"><a href="#创建生成器方式2" class="headerlink" title="创建生成器方式2:"></a>创建生成器方式2:</h3><p>generator非常强大。如果推算的算法比较复杂，用类似列表生成式的 for 循环无法实现的时候，还可以用函数来实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">gen</span>():</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; <span class="number">5</span>:</span><br><span class="line">        <span class="keyword">yield</span> i</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"><span class="comment"># 此时获取的是一个生成器 不是在执行一个函</span></span><br><span class="line">g = gen()</span><br><span class="line"><span class="built_in">print</span>(g) <span class="comment"># &lt;generator object gen at 内存地址&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>一个函数可以访问另一个函数里的变量就叫闭包</p>
+<p>闭包就是外层函数返回的局部变量</p>
+<h2 id="装饰器decorator"><a href="#装饰器decorator" class="headerlink" title="装饰器decorator"></a>装饰器decorator</h2><p>需求：在很多代码片段(函数、方法)之前和之后，执行指定代码</p>
+<h4 id="浅拷贝（copy）"><a href="#浅拷贝（copy）" class="headerlink" title="浅拷贝（copy）"></a>浅拷贝（copy）</h4><p>只拷贝一层</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">变量 = copy.copy(拷贝对象)</span><br></pre></td></tr></table></figure>
+
+<h5 id="切片拷贝-也属于浅拷贝"><a href="#切片拷贝-也属于浅拷贝" class="headerlink" title="切片拷贝(也属于浅拷贝)"></a>切片拷贝(也属于浅拷贝)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="number">11</span>,<span class="number">22</span>]</span><br><span class="line">lis2 = [<span class="number">33</span>,<span class="number">44</span>]</span><br><span class="line">d = [lis,lis2]</span><br><span class="line">c = d[:]</span><br><span class="line"><span class="built_in">print</span>(c) <span class="comment"># [[11,22],[33,44]]</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="深拷贝（deepcopy）"><a href="#深拷贝（deepcopy）" class="headerlink" title="深拷贝（deepcopy）"></a>深拷贝（deepcopy）</h4><p>多层拷贝</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">变量 = copy.deepcopy</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="面向对象提高2"><a href="#面向对象提高2" class="headerlink" title="面向对象提高2"></a>面向对象提高2</h2><h3 id="python动态绑定"><a href="#python动态绑定" class="headerlink" title="python动态绑定"></a>python动态绑定</h3><h3 id="动态语言的定义"><a href="#动态语言的定义" class="headerlink" title="动态语言的定义"></a>动态语言的定义</h3><p>动态编程语言 是 高级程序设计语言 的一个类别，在计算机科学领域已被广泛应用。它是一类 在运行时可以改变其结构的语言。</p>
+<p>动态语言目前非常具有活力。例如<code>Python</code>便是一个动态语言，除此之外如 <code>PHP</code> 、 <code>Ruby</code> 、 <code>JavaScript</code> 等也都属于动态语言，而 <code>C语言</code> 、<code>C++</code> 等语言则不属于动态语言。—-来自 维基百科</p>
+<h3 id="运行中给-实例对象-绑定-添加-属性"><a href="#运行中给-实例对象-绑定-添加-属性" class="headerlink" title="运行中给 实例对象 绑定(添加)属性"></a>运行中给 实例对象 绑定(添加)属性</h3><p>给实例对象绑定属性：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name=<span class="literal">None</span>, age=<span class="literal">None</span></span>):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">p = Person(<span class="string">&quot;小明&quot;</span>, <span class="string">&quot;24&quot;</span>)</span><br><span class="line"></span><br><span class="line">p.hobby = <span class="string">&#x27;敲代码&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="运行中给-类-绑定-添加-属性"><a href="#运行中给-类-绑定-添加-属性" class="headerlink" title="运行中给 类 绑定(添加)属性"></a>运行中给 类 绑定(添加)属性</h3><p>给类绑定属性：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name=<span class="literal">None</span>, age=<span class="literal">None</span></span>):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Person.sex = <span class="literal">None</span> <span class="comment"># 给类Person添加一个属性</span></span><br><span class="line"></span><br><span class="line">p1 = Person(<span class="string">&quot;小明&quot;</span>, <span class="string">&quot;24&quot;</span>)</span><br><span class="line">p2 = Person(<span class="string">&quot;小丽&quot;</span>, <span class="string">&quot;25&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(p1.sex)   <span class="comment"># 如果p1这个实例对象中没有sex属性的话，那么就会访问它的类属性</span></span><br><span class="line"><span class="built_in">print</span>(p2.sex)  <span class="comment"># 如果p2这个实例对象中没有sex属性的话，那么就会访问它的类属性</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="运行中给实例对象绑定-添加-方法"><a href="#运行中给实例对象绑定-添加-方法" class="headerlink" title="运行中给实例对象绑定(添加)方法"></a>运行中给实例对象绑定(添加)方法</h3><p>给实例对象添加方法</p>
+<h4 id="2-1-x3D-x3D-、-is"><a href="#2-1-x3D-x3D-、-is" class="headerlink" title="2.1 &#x3D;&#x3D; 、 is"></a>2.1 &#x3D;&#x3D; 、 is</h4><p><code>==</code>判断两个数值是否相等</p>
+<p>is判断两个对象是否为同一个地址</p>
+<h4 id="with的使用-上下文管理器"><a href="#with的使用-上下文管理器" class="headerlink" title="with的使用(上下文管理器)"></a>with的使用(上下文管理器)</h4><h2 id="元类"><a href="#元类" class="headerlink" title="元类"></a>元类</h2><h3 id="1-类也是对象"><a href="#1-类也是对象" class="headerlink" title="1.类也是对象"></a>1.类也是对象</h3><p>大多数编程语言中，<strong>类就是一组用来描述如何生成一个对象的代码段</strong>，在Python中这一点仍然成立：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ObjectCreator</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_object = ObjectCreator()</span><br><span class="line"><span class="built_in">print</span>(my_object) <span class="comment">#&lt;__main__.ObjectCreator object at 0x0000028BD7CF6518&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>但是，Python中的类还远不止如此。类同样也是一种对象。是的，没错，就是对象。只要你使用关键字class，Python解释器在执行的时候就会创建一个对象。</p>
+<p>下面的代码段：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ObjectCreator</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">      <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<p>将在内存中创建一个对象，名字就是ObjectCreator。这个对象（类对象ObjectCreator）拥有创建对象（实例对象）的能力。但是，它的本质仍然是一个对象，于是乎你可以对它做如下的操作：</p>
+<ol>
+<li>你可以将它赋值给一个变量</li>
+<li>你可以拷贝它</li>
+<li>你可以为它增加属性</li>
+<li>你可以将它作为函数参数进行传递</li>
+</ol>
+<h3 id="动态地创建类"><a href="#动态地创建类" class="headerlink" title="动态地创建类"></a>动态地创建类</h3><ul>
+<li><p>可以在运行时动态创建他们</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test</span>():</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以在函数里创建类，并返回类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">aaa</span>():</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">aa</span>():</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">return</span> aa</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="使用type创建类"><a href="#使用type创建类" class="headerlink" title="使用type创建类"></a>使用type创建类</h3><p>type原本用于检查数据的类型，但它有一个完全不同的功能，动态创建类。</p>
+<p>type可以接受一个类的描述作为参数，然后返回一个类</p>
+<p>type创建类：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(<span class="string">&quot;类名&quot;</span>,(由父类名称组成的元组-针对继承的情况，可以为空),包含属性的字典)</span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(<span class="string">&#x27;Person&#x27;</span>,(),&#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">  	<span class="string">&#x27;age&#x27;</span>:<span class="number">18</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>可以翻译为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>:</span><br><span class="line">    name = <span class="string">&#x27;admin&#x27;</span></span><br><span class="line">    age = <span class="number">18</span></span><br></pre></td></tr></table></figure>
+
+<p>并且可以将type创建的类当普通的类使用。</p>
+<h4 id="挂载属性"><a href="#挂载属性" class="headerlink" title="挂载属性"></a>挂载属性</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(<span class="string">&#x27;Person&#x27;</span>,(),&#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">  	<span class="string">&#x27;age&#x27;</span>:<span class="number">18</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="help方法-打印使用提示的方法"><a href="#help方法-打印使用提示的方法" class="headerlink" title="help方法-打印使用提示的方法"></a>help方法-打印使用提示的方法</h4><p>使用help方法可以打印类里各种方法属性的用途和描述</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">10</span>]: <span class="built_in">help</span>(Test) <span class="comment"># 用help查看Test类</span></span><br><span class="line"></span><br><span class="line">Help on <span class="keyword">class</span> <span class="title class_">Test</span> <span class="keyword">in</span> module __main__:</span><br><span class="line"></span><br><span class="line">Out:</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span>(builtins.<span class="built_in">object</span>)</span><br><span class="line"> |  Data descriptors defined here:</span><br><span class="line"> |</span><br><span class="line"> |  __dict__</span><br><span class="line"> |      dictionary <span class="keyword">for</span> instance variables (<span class="keyword">if</span> defined)</span><br><span class="line"> |</span><br><span class="line"> |  __weakref__</span><br><span class="line"> |      <span class="built_in">list</span> of weak references to the <span class="built_in">object</span> (<span class="keyword">if</span> defined)</span><br></pre></td></tr></table></figure>
+
+<h4 id="元类——type"><a href="#元类——type" class="headerlink" title="元类——type"></a>元类——type</h4><p>元类就是用来创建类的“东西”，元类就是用来创建类的类，type就是Python在背后用来创建所有类的元类。</p>
+<p>Python中所有的东西，注意，我是指所有的东西——都是对象。这包括整数、字符串、函数以及类。</p>
+<h4 id="metaclass-属性"><a href="#metaclass-属性" class="headerlink" title="__metaclass__属性"></a><code>__metaclass__</code>属性</h4><p>此属性为类里边的属性，属性描述的就是创建这个类的元类是那个类</p>
+<h4 id="type元类挂载方法"><a href="#type元类挂载方法" class="headerlink" title="type元类挂载方法"></a>type元类挂载方法</h4><p>和挂载属性一样，是写在第三个参数的字典里</p>
+<p>但不同的时候需要将方法在外边先定义好：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    num = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_b</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">print</span>(self)</span><br><span class="line">    <span class="built_in">print</span>(self.num)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置静态方法</span></span><br><span class="line"><span class="meta">@staticmethod</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_static</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;----haha-----&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置类方法</span></span><br><span class="line"><span class="meta">@classmethod</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_class</span>(<span class="params">cls</span>):</span><br><span class="line">    <span class="built_in">print</span>(cls.num)</span><br><span class="line"></span><br><span class="line"><span class="comment">#   挂载</span></span><br><span class="line">B = <span class="built_in">type</span>(<span class="string">&quot;B&quot;</span>, (A,), &#123;</span><br><span class="line">  <span class="string">&quot;print_b&quot;</span>: print_b,</span><br><span class="line">  <span class="string">&quot;print_static&quot;</span>: print_static,</span><br><span class="line">  <span class="string">&quot;print_class&quot;</span>: print_class,</span><br><span class="line">  <span class="string">&quot;age&quot;</span>: <span class="number">20</span>&#125;)</span><br><span class="line">b = B()</span><br><span class="line">b.print_b() <span class="comment"># &lt;__main__.B object at 0x104f3bf70&gt;</span></span><br><span class="line">            <span class="comment"># 100</span></span><br><span class="line">b.print_static() <span class="comment"># ----haha-----</span></span><br><span class="line">b.print_class() <span class="comment"># 100</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="自定义元类"><a href="#自定义元类" class="headerlink" title="自定义元类"></a>自定义元类</h4><p>在class类中的<code>__new__</code>方法内返回用type创建的类，并将这个方法，写到一个class里边就完事了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">upper_attr</span>(<span class="params">class_name, class_parents, class_attr</span>):</span><br><span class="line"></span><br><span class="line">    <span class="comment">#遍历属性字典，把不是__开头的属性名字变为大写</span></span><br><span class="line">    new_attr = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> name,value <span class="keyword">in</span> class_attr.items():</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> name.startswith(<span class="string">&quot;__&quot;</span>):</span><br><span class="line">            new_attr[name.upper()] = value</span><br><span class="line"></span><br><span class="line">    <span class="comment">#调用type来创建一个类</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">type</span>(class_name, class_parents, new_attr)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span>(<span class="built_in">object</span>, metaclass=upper_attr):</span><br><span class="line">    bar = <span class="string">&#x27;bip&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hasattr</span>(Foo, <span class="string">&#x27;bar&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hasattr</span>(Foo, <span class="string">&#x27;BAR&#x27;</span>))</span><br><span class="line"></span><br><span class="line">f = Foo()</span><br><span class="line"><span class="built_in">print</span>(f.BAR)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="getattr-和-getattribute-方法"><a href="#getattr-和-getattribute-方法" class="headerlink" title="__getattr__和__getattribute__方法"></a><code>__getattr__</code>和<code>__getattribute__</code>方法</h3><h4 id="1-getattr"><a href="#1-getattr" class="headerlink" title="1. __getattr__"></a>1. <code>__getattr__</code></h4><ul>
+<li>在定义类的时候，设置此方法后，实例访问的属性是 <strong>类原本的属性</strong> 时，会调用此方法，并返回此方法的返回值。</li>
+<li>使用实例直接访问实例存在的实例属性时,不会调用<code>__getattr__</code>方法</li>
+</ul>
+<p>有两个参数:</p>
+<ul>
+<li>self指向创建出来的实例对象</li>
+<li>item为返回实例对象的属性名</li>
+</ul>
+<h4 id="2-getattribute"><a href="#2-getattribute" class="headerlink" title="2. __getattribute__"></a>2. <code>__getattribute__</code></h4><p><code>__getattribute__</code>仅在新式类中可用，重写<code>__getattrbute__</code>方法对类实例的每个属性访问都有效。</p>
+<ul>
+<li>self指向创建出来的实例对象</li>
+<li>item为返回实例对象的属性名</li>
+</ul>
+<h4 id="3-同时定义时"><a href="#3-同时定义时" class="headerlink" title="3. 同时定义时"></a>3. 同时定义时</h4><p><code>__getattr__</code>方法不会被调用，只会调用<code>__getattribute__</code></p>
+<h3 id="描述符-descriptor"><a href="#描述符-descriptor" class="headerlink" title="描述符(descriptor)"></a>描述符(descriptor)</h3><p>如果一个 <strong>类</strong> 有个 <strong>属性</strong> 是 <strong>另个类</strong> 的 <strong>实例化对象</strong> ，那么这个属性（也就是那个实例化对象)，就是一个描述符。</p>
+<p>描述符就是那个 <strong>另一个类</strong> ，也是一个普通的类</p>
+<h4 id="描述符中的设置："><a href="#描述符中的设置：" class="headerlink" title="描述符中的设置："></a>描述符中的设置：</h4><h5 id="get"><a href="#get" class="headerlink" title="__get__():"></a><code>__get__()</code>:</h5><p>此方法是描述符中的方法，在实例化对象后，对象的属性被 <strong>访问</strong> 时将调用此方法，返回此方法返回的数据（默认不写也可以）</p>
+<p>一共有三个参数：(self,instance,owner)</p>
+<ul>
+<li>self指向实例对象的属性</li>
+<li>instance 指向 调用描述符的对象（可通过id来获取地址）</li>
+<li>owner 是此描述符所在类的</li>
+</ul>
+<h5 id="set"><a href="#set" class="headerlink" title="__set__():"></a><code>__set__()</code>:</h5><p>此方法是描述符中的方法，在实例化对象后，对象的属性被 <strong>赋值</strong> 时调用此方法，返回此方法返回的数据(必须得有返回值)</p>
+<p>一共有三个参数：(self,instance,value)</p>
+<ul>
+<li>self指向实例对象的属性</li>
+<li>instance 指向 调用描述符的对象（可通过id来获取地址）</li>
+<li>value是实例化对象的属性 被 赋予的 <strong>新值</strong></li>
+</ul>
+<h5 id="delete"><a href="#delete" class="headerlink" title="__delete__():"></a><code>__delete__()</code>:</h5><p>此方法是描述符中的方法，在实例化对象后，对象的属性被 <strong>删除</strong> 时调用此方法</p>
+<ul>
+<li>self指向实例对象的属性</li>
+<li>instance是此描述符所在的类及地址（可通过id来获取地址）</li>
+</ul>
+<p>大例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyDescriptor</span>:</span><br><span class="line">    <span class="comment"># instance 实例 对象</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__get__</span>(<span class="params">self, instance, owner</span>):</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;get instance&#x27;</span>, instance,<span class="built_in">id</span>(instance))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;get owner&#x27;</span>, owner)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;get&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__set__</span>(<span class="params">self, instance, value</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;set instance&#x27;</span>, instance)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;set value&#x27;</span>, value)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__delete__</span>(<span class="params">self, instance</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;delete called&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span>:</span><br><span class="line">    attr = MyDescriptor()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f = Foo()</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(f)) <span class="comment">#21654520</span></span><br><span class="line"><span class="built_in">print</span>(f.attr) <span class="comment">#get instance &lt;__main__.Foo object at 0x014A6BF8&gt; 21654520</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;--------------------------------&#x27;</span>)</span><br><span class="line">f.attr = <span class="string">&quot;hehe&quot;</span> <span class="comment">#set instance &lt;__main__.Foo object at 0x014A6BF8&gt;  set value hehe</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;--------------------------------&#x27;</span>)</span><br><span class="line"><span class="keyword">del</span> f.attr</span><br></pre></td></tr></table></figure>
+
+
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python%E9%AB%98%E7%BA%A7"><span class="toc-number">1.</span> <span class="toc-text">python高级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">迭代器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E2%80%9C%E8%BF%AD%E4%BB%A3%E2%80%9D"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.什么是“迭代”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8-1"><span class="toc-number">1.1.2.</span> <span class="toc-text">迭代器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StopIteration%E5%BC%82%E5%B8%B8"><span class="toc-number">1.1.3.</span> <span class="toc-text">StopIteration异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E2%80%9C%E5%8F%AF%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%B1%A1%E2%80%9D"><span class="toc-number">1.1.4.</span> <span class="toc-text">自定义“可迭代对象”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%9F%A5%E7%9C%8B%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E8%BF%AD%E4%BB%A3"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">如果查看对象是否可以迭代</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%9A%E7%89%B9%E6%AE%8A%E7%9A%84%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">生成器：特殊的迭代器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">什么是生成器：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%94%9F%E6%88%90%E5%99%A8%E6%96%B9%E5%BC%8F1"><span class="toc-number">1.2.2.</span> <span class="toc-text">创建生成器方式1:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%94%9F%E6%88%90%E5%99%A8%E6%96%B9%E5%BC%8F2"><span class="toc-number">1.2.3.</span> <span class="toc-text">创建生成器方式2:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-number">1.3.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%85%E9%A5%B0%E5%99%A8decorator"><span class="toc-number">1.4.</span> <span class="toc-text">装饰器decorator</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%EF%BC%88copy%EF%BC%89"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">浅拷贝（copy）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%87%E7%89%87%E6%8B%B7%E8%B4%9D-%E4%B9%9F%E5%B1%9E%E4%BA%8E%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.4.0.1.1.</span> <span class="toc-text">切片拷贝(也属于浅拷贝)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%EF%BC%88deepcopy%EF%BC%89"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">深拷贝（deepcopy）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%8F%90%E9%AB%982"><span class="toc-number">1.5.</span> <span class="toc-text">面向对象提高2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A"><span class="toc-number">1.5.1.</span> <span class="toc-text">python动态绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%AF%AD%E8%A8%80%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.5.2.</span> <span class="toc-text">动态语言的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E4%B8%AD%E7%BB%99-%E5%AE%9E%E4%BE%8B%E5%AF%B9%E8%B1%A1-%E7%BB%91%E5%AE%9A-%E6%B7%BB%E5%8A%A0-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.3.</span> <span class="toc-text">运行中给 实例对象 绑定(添加)属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E4%B8%AD%E7%BB%99-%E7%B1%BB-%E7%BB%91%E5%AE%9A-%E6%B7%BB%E5%8A%A0-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.4.</span> <span class="toc-text">运行中给 类 绑定(添加)属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E4%B8%AD%E7%BB%99%E5%AE%9E%E4%BE%8B%E5%AF%B9%E8%B1%A1%E7%BB%91%E5%AE%9A-%E6%B7%BB%E5%8A%A0-%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.5.</span> <span class="toc-text">运行中给实例对象绑定(添加)方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-x3D-x3D-%E3%80%81-is"><span class="toc-number">1.5.5.1.</span> <span class="toc-text">2.1 &#x3D;&#x3D; 、 is</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#with%E7%9A%84%E4%BD%BF%E7%94%A8-%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">1.5.5.2.</span> <span class="toc-text">with的使用(上下文管理器)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B1%BB"><span class="toc-number">1.6.</span> <span class="toc-text">元类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%B1%BB%E4%B9%9F%E6%98%AF%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.类也是对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%9C%B0%E5%88%9B%E5%BB%BA%E7%B1%BB"><span class="toc-number">1.6.2.</span> <span class="toc-text">动态地创建类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8type%E5%88%9B%E5%BB%BA%E7%B1%BB"><span class="toc-number">1.6.3.</span> <span class="toc-text">使用type创建类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD%E5%B1%9E%E6%80%A7"><span class="toc-number">1.6.3.1.</span> <span class="toc-text">挂载属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#help%E6%96%B9%E6%B3%95-%E6%89%93%E5%8D%B0%E4%BD%BF%E7%94%A8%E6%8F%90%E7%A4%BA%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.6.3.2.</span> <span class="toc-text">help方法-打印使用提示的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E7%B1%BB%E2%80%94%E2%80%94type"><span class="toc-number">1.6.3.3.</span> <span class="toc-text">元类——type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#metaclass-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.6.3.4.</span> <span class="toc-text">__metaclass__属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#type%E5%85%83%E7%B1%BB%E6%8C%82%E8%BD%BD%E6%96%B9%E6%B3%95"><span class="toc-number">1.6.3.5.</span> <span class="toc-text">type元类挂载方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E7%B1%BB"><span class="toc-number">1.6.3.6.</span> <span class="toc-text">自定义元类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getattr-%E5%92%8C-getattribute-%E6%96%B9%E6%B3%95"><span class="toc-number">1.6.4.</span> <span class="toc-text">__getattr__和__getattribute__方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-getattr"><span class="toc-number">1.6.4.1.</span> <span class="toc-text">1. __getattr__</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-getattribute"><span class="toc-number">1.6.4.2.</span> <span class="toc-text">2. __getattribute__</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%90%8C%E6%97%B6%E5%AE%9A%E4%B9%89%E6%97%B6"><span class="toc-number">1.6.4.3.</span> <span class="toc-text">3. 同时定义时</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0%E7%AC%A6-descriptor"><span class="toc-number">1.6.5.</span> <span class="toc-text">描述符(descriptor)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0%E7%AC%A6%E4%B8%AD%E7%9A%84%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="toc-number">1.6.5.1.</span> <span class="toc-text">描述符中的设置：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#get"><span class="toc-number">1.6.5.1.1.</span> <span class="toc-text">__get__():</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#set"><span class="toc-number">1.6.5.1.2.</span> <span class="toc-text">__set__():</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#delete"><span class="toc-number">1.6.5.1.3.</span> <span class="toc-text">__delete__():</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="../js/plugin.js"></script>
+<script src="../js/typed.js"></script>
+<script src="../js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="../photoswipe/photoswipe.css">
+<link rel="stylesheet" href="../photoswipe/default-skin/default-skin.css">
+
+
+<script src="../photoswipe/photoswipe.min.js"></script>
+<script src="../photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
